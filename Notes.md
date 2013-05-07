@@ -16,7 +16,7 @@
 ### Client
 
 1. Crear clase FDDPMainViewController (con xib, hereda de UIViewController).
-2. En el AppDelegate declarar UINavigationController y FDDPMainViewController.
+2. En el AppDelegate, en application:didFinishLaunchingWithOptions: declarar UINavigationController y FDDPMainViewController.
 3. Borrar el comentario y sustituir con los siguientes 3 pasos.
 4. Inicializar primero el mainViewController (initWithNibName:).
 5. Inicializar el navigationController (initWithRootViewController:).

@@ -27,9 +27,6 @@ post '/meals' do
     return res.to_json
   end
   
-  fields = Array.new
-  values = Array.new
-  
   unless data.has_key?("mealName")
     status 400
     res = { message: "Missing mealName parameter." }
@@ -57,7 +54,7 @@ post '/meals' do
   
   if data.has_key?("itemIds")
     data["itemIds"].each do |itemId|
-      query = "INSERT INTO Item_has_Meal (Item_id, Meal_id) VALUES(#{itemId}, mealId)"
+      query = "INSERT INTO Item_has_Meal (Item_id, Meal_id) VALUES(#{itemId}, #{mealId})"
       @@mysqlclient.query(query, as: :hash)
     end    
   end

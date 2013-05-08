@@ -42,9 +42,6 @@ post '/items' do
     return res.to_json
   end
   
-  fields = Array.new
-  values = Array.new
-  
   unless data.has_key?("itemName")
     status 400
     res = { message: "Missing itemName parameter." }

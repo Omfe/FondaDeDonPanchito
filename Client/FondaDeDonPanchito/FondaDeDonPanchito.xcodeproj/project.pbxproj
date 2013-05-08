@@ -16,6 +16,13 @@
 		990A778E172DF7D200DB1600 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 990A778D172DF7D200DB1600 /* Default.png */; };
 		990A7790172DF7D200DB1600 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 990A778F172DF7D200DB1600 /* Default@2x.png */; };
 		990A7792172DF7D200DB1600 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 990A7791172DF7D200DB1600 /* Default-568h@2x.png */; };
+		9925F1501739D6C200070080 /* FDDPMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9925F14E1739D6C200070080 /* FDDPMainViewController.m */; };
+		9925F1511739D6C200070080 /* FDDPMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9925F14F1739D6C200070080 /* FDDPMainViewController.xib */; };
+		9925F1551739DED800070080 /* FDDPItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9925F1541739DED800070080 /* FDDPItem.m */; };
+		9925F1581739DEEB00070080 /* FDDPMeal.m in Sources */ = {isa = PBXBuildFile; fileRef = 9925F1571739DEEB00070080 /* FDDPMeal.m */; };
+		9925F15B1739DEFA00070080 /* FDDPOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9925F15A1739DEFA00070080 /* FDDPOrder.m */; };
+		9925F15E1739DF0C00070080 /* FDDPUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9925F15D1739DF0C00070080 /* FDDPUser.m */; };
+		9925F1611739DF1E00070080 /* FDDPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9925F1601739DF1E00070080 /* FDDPClient.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +39,19 @@
 		990A778D172DF7D200DB1600 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		990A778F172DF7D200DB1600 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		990A7791172DF7D200DB1600 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		9925F14D1739D6C200070080 /* FDDPMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDDPMainViewController.h; sourceTree = "<group>"; };
+		9925F14E1739D6C200070080 /* FDDPMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDDPMainViewController.m; sourceTree = "<group>"; };
+		9925F14F1739D6C200070080 /* FDDPMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FDDPMainViewController.xib; sourceTree = "<group>"; };
+		9925F1531739DED800070080 /* FDDPItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDDPItem.h; sourceTree = "<group>"; };
+		9925F1541739DED800070080 /* FDDPItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDDPItem.m; sourceTree = "<group>"; };
+		9925F1561739DEEB00070080 /* FDDPMeal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDDPMeal.h; sourceTree = "<group>"; };
+		9925F1571739DEEB00070080 /* FDDPMeal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDDPMeal.m; sourceTree = "<group>"; };
+		9925F1591739DEFA00070080 /* FDDPOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDDPOrder.h; sourceTree = "<group>"; };
+		9925F15A1739DEFA00070080 /* FDDPOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDDPOrder.m; sourceTree = "<group>"; };
+		9925F15C1739DF0C00070080 /* FDDPUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDDPUser.h; sourceTree = "<group>"; };
+		9925F15D1739DF0C00070080 /* FDDPUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDDPUser.m; sourceTree = "<group>"; };
+		9925F15F1739DF1E00070080 /* FDDPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDDPClient.h; sourceTree = "<group>"; };
+		9925F1601739DF1E00070080 /* FDDPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDDPClient.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,8 +98,12 @@
 		990A7781172DF7D200DB1600 /* FondaDeDonPanchito */ = {
 			isa = PBXGroup;
 			children = (
+				9925F1521739DE7900070080 /* Model */,
 				990A778A172DF7D200DB1600 /* FDDPAppDelegate.h */,
 				990A778B172DF7D200DB1600 /* FDDPAppDelegate.m */,
+				9925F14D1739D6C200070080 /* FDDPMainViewController.h */,
+				9925F14E1739D6C200070080 /* FDDPMainViewController.m */,
+				9925F14F1739D6C200070080 /* FDDPMainViewController.xib */,
 				990A7782172DF7D200DB1600 /* Supporting Files */,
 			);
 			path = FondaDeDonPanchito;
@@ -97,6 +121,23 @@
 				990A7791172DF7D200DB1600 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9925F1521739DE7900070080 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9925F1531739DED800070080 /* FDDPItem.h */,
+				9925F1541739DED800070080 /* FDDPItem.m */,
+				9925F1561739DEEB00070080 /* FDDPMeal.h */,
+				9925F1571739DEEB00070080 /* FDDPMeal.m */,
+				9925F1591739DEFA00070080 /* FDDPOrder.h */,
+				9925F15A1739DEFA00070080 /* FDDPOrder.m */,
+				9925F15C1739DF0C00070080 /* FDDPUser.h */,
+				9925F15D1739DF0C00070080 /* FDDPUser.m */,
+				9925F15F1739DF1E00070080 /* FDDPClient.h */,
+				9925F1601739DF1E00070080 /* FDDPClient.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,6 +196,7 @@
 				990A778E172DF7D200DB1600 /* Default.png in Resources */,
 				990A7790172DF7D200DB1600 /* Default@2x.png in Resources */,
 				990A7792172DF7D200DB1600 /* Default-568h@2x.png in Resources */,
+				9925F1511739D6C200070080 /* FDDPMainViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,6 +209,12 @@
 			files = (
 				990A7788172DF7D200DB1600 /* main.m in Sources */,
 				990A778C172DF7D200DB1600 /* FDDPAppDelegate.m in Sources */,
+				9925F1501739D6C200070080 /* FDDPMainViewController.m in Sources */,
+				9925F1551739DED800070080 /* FDDPItem.m in Sources */,
+				9925F1581739DEEB00070080 /* FDDPMeal.m in Sources */,
+				9925F15B1739DEFA00070080 /* FDDPOrder.m in Sources */,
+				9925F15E1739DF0C00070080 /* FDDPUser.m in Sources */,
+				9925F1611739DF1E00070080 /* FDDPClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +329,7 @@
 				990A7797172DF7D200DB1600 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

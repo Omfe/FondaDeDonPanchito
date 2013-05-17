@@ -26,9 +26,9 @@
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2013-05-17 05:11:17 +0000</string>
+	<string>2013-05-17 05:41:05 +0000</string>
 	<key>Modifier</key>
-	<string>Rogelio Gudino</string>
+	<string>Omar Gudino</string>
 	<key>NotesVisible</key>
 	<string>NO</string>
 	<key>OriginVisible</key>
@@ -342,8 +342,8 @@ JSON}</string>
 					<integer>12</integer>
 					<key>Points</key>
 					<array>
-						<string>{301.50000084166845, 346.57049965512175}</string>
-						<string>{256.99999945634437, 346.65305846617622}</string>
+						<string>{301.50000008393306, 346.52270885675256}</string>
+						<string>{256.99999992458083, 346.54930212336683}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -412,8 +412,8 @@ JSON}</string>
 					<integer>9</integer>
 					<key>Points</key>
 					<array>
-						<string>{425.60800883678235, 278.34079512341197}</string>
-						<string>{377.39211183544046, 316.51973856134913}</string>
+						<string>{425.60798470328245, 278.33349215842946}</string>
+						<string>{377.39204426176883, 316.5063717310415}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -447,8 +447,8 @@ JSON}</string>
 					<integer>8</integer>
 					<key>Points</key>
 					<array>
-						<string>{425.61257063184559, 185.27508945902653}</string>
-						<string>{377.38730948954992, 145.93263345228459}</string>
+						<string>{425.6125946048968, 185.26779508212687}</string>
+						<string>{377.38737661730886, 145.91928114110402}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -676,8 +676,8 @@ iOS}</string>
 					<integer>70</integer>
 					<key>Points</key>
 					<array>
-						<string>{301.05947343146795, 325.7800326822715}</string>
-						<string>{338.75539612855619, 400.74350264215451}</string>
+						<string>{301.05951981422953, 325.78003230297372}</string>
+						<string>{338.75559461314737, 400.74349995595151}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -816,8 +816,8 @@ iOS}</string>
 					<integer>67</integer>
 					<key>Points</key>
 					<array>
-						<string>{292.13109968521047, 151.16362979489958}</string>
-						<string>{296.26364731823128, 188.50340819124904}</string>
+						<string>{292.16750769716953, 151.1635425255599}</string>
+						<string>{296.35960108653438, 188.50317048344954}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -851,8 +851,8 @@ iOS}</string>
 					<integer>66</integer>
 					<key>Points</key>
 					<array>
-						<string>{289.60411580695239, 72.499998747133475}</string>
-						<string>{289.60374817493607, 105.49999998130038}</string>
+						<string>{289.60432910570836, 72.499998747133475}</string>
+						<string>{289.60426974491531, 105.49999998130056}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -876,7 +876,7 @@ iOS}</string>
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{9.2783279418945277, 193.66666984558111}, {94.666664123535156, 44.666664123535156}}</string>
+					<string>{{9.2783279418945312, 106.00000572204596}, {94.666664123535156, 132.33332824707031}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>ID</key>
@@ -955,7 +955,7 @@ iOS}</string>
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\f0\fs24 \cf0 Controllers}</string>
+\f0\fs24 \cf0 DataControllers}</string>
 							</dict>
 						</dict>
 						<dict>
@@ -1049,26 +1049,6 @@ iOS}</string>
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
 \f0\fs24 \cf0 Server Data}</string>
-					</dict>
-				</dict>
-				<dict>
-					<key>Bounds</key>
-					<string>{{9.278327941894414, 105.99999999999996}, {94.666664123535156, 44.666664123535156}}</string>
-					<key>Class</key>
-					<string>ShapedGraphic</string>
-					<key>ID</key>
-					<integer>44</integer>
-					<key>Shape</key>
-					<string>Rectangle</string>
-					<key>Text</key>
-					<dict>
-						<key>Text</key>
-						<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf370
-\cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
-
-\f0\fs24 \cf0 Business Logic}</string>
 					</dict>
 				</dict>
 				<dict>
@@ -1460,7 +1440,7 @@ iOS}</string>
 			</dict>
 		</array>
 		<key>Frame</key>
-		<string>{{682, 434}, {1069, 872}}</string>
+		<string>{{211, 64}, {1069, 714}}</string>
 		<key>ListView</key>
 		<true/>
 		<key>OutlineWidth</key>
@@ -1474,9 +1454,9 @@ iOS}</string>
 		<key>SidebarWidth</key>
 		<integer>120</integer>
 		<key>VisibleRegion</key>
-		<string>{{-24, 0}, {622.66666666666663, 488.66666666666669}}</string>
+		<string>{{-180, 0}, {934, 575}}</string>
 		<key>Zoom</key>
-		<real>1.5</real>
+		<real>1</real>
 		<key>ZoomValues</key>
 		<array>
 			<array>
@@ -1486,8 +1466,8 @@ iOS}</string>
 			</array>
 			<array>
 				<string>Layers</string>
-				<real>1.5</real>
 				<real>1</real>
+				<real>1.5</real>
 			</array>
 		</array>
 	</dict>

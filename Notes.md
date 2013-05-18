@@ -15,10 +15,7 @@
 
 ### Client
 
-* Crear un LoginViewController en el grupo "ViewControllers"
-* Sustituir en el AppDelegate al MainViewController por el LoginViewController
-* Borrar el MainViewController
-* En Finder, borrar temp.md del folder "ViewControllers"
+* 
 
 #### UI
 

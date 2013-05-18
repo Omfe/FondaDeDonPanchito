@@ -7,18 +7,18 @@
 //
 
 #import "FDDPAppDelegate.h"
-#import "FDDPMainViewController.h"
+#import "FDDPLoginViewController.h"
 
 @implementation FDDPAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     UINavigationController *navigationController;
-    FDDPMainViewController *mainViewController;
+    FDDPLoginViewController *loginViewController;
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    mainViewController = [[FDDPMainViewController alloc] initWithNibName:nil bundle:nil];
-    navigationController = [[UINavigationController alloc] initWithRootViewController:mainViewController];
+    loginViewController = [[FDDPLoginViewController alloc] initWithNibName:@"FDDPLoginViewController" bundle:nil];
+    navigationController = [[UINavigationController alloc] initWithRootViewController:loginViewController];
     self.window.rootViewController = navigationController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

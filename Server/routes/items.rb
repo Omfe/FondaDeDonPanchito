@@ -15,8 +15,6 @@ end
 
 # http://localhost:4567/items/1
 get '/items/:id' do
-  request.body.read
-  
   results_array = Array.new
   
   query = "SELECT * FROM Item WHERE id=#{params[:id]}"
@@ -109,8 +107,6 @@ end
 
 # http://localhost:4567/items/1
 delete '/items/:id' do
-  request.body.read
-  
   query = "DELETE FROM Item_has_Meal WHERE Item_id=#{params[:id]}"
   @@mysqlclient.query(query, as: :hash)
   

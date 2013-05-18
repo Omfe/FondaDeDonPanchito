@@ -68,6 +68,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		429957F417472EB000C36B74 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		429957F517472EB700C36B74 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		990A776F172DF7D200DB1600 = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +112,8 @@
 		990A7781172DF7D200DB1600 /* FondaDeDonPanchito */ = {
 			isa = PBXGroup;
 			children = (
+				429957F517472EB700C36B74 /* ViewControllers */,
+				429957F417472EB000C36B74 /* Controllers */,
 				9925F1521739DE7900070080 /* Model */,
 				990A778A172DF7D200DB1600 /* FDDPAppDelegate.h */,
 				990A778B172DF7D200DB1600 /* FDDPAppDelegate.m */,

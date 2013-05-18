@@ -111,6 +111,9 @@ end
 delete '/items/:id' do
   request.body.read
   
+  query = "DELETE FROM Item_has_Meal WHERE Item_id=#{params[:id]}"
+  @@mysqlclient.query(query, as: :hash)
+  
   query = "DELETE FROM Item WHERE id=#{params[:id]}"
   @@mysqlclient.query(query, as: :hash)
   

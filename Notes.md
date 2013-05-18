@@ -5,6 +5,7 @@
 
 ### Server
 
+* Actualizar la DB para que User tenga columna "token" de tipo VARCHAR
 * CRUD para Auth
   * POST /login
   * POST /logout

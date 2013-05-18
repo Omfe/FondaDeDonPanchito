@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 Omar Gudino. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 @interface FDDPAuthenticationController : NSObject
 
 @end

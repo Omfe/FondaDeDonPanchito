@@ -5,7 +5,6 @@
 
 ### Server
 
-* Crear un archivo nuevo "auth.rb"
 * CRUD para Auth
   * POST /login
   * POST /logout

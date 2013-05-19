@@ -7,6 +7,7 @@
 //
 
 #import "FDDPLoginViewController.h"
+#import "FDDPAuthenticationController.h"
 
 @interface FDDPLoginViewController () <UITextFieldDelegate>
 
@@ -47,7 +48,7 @@
 - (void)_login
 {
     [self.view endEditing:YES];
-    //login
+    [[FDDPAuthenticationController sharedAuthenticationController] loginWithUsername:self.usernameTextField.text withPassword:self.passwordTextField.text];
 }
 
 @end

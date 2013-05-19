@@ -8,4 +8,8 @@
 
 @interface FDDPAuthenticationController : NSObject
 
++ (FDDPAuthenticationController *)sharedAuthenticationController;
+
+- (void)loginWithUsername:(NSString *)username withPassword:(NSString *)password;
+
 @end

@@ -20,7 +20,9 @@
 
 ### Client
 
-* AuthenticationController
+* LoginViewController
+  * Hacer el segundo TextField "secure" (que salgan bolitas cuando escribes) en Interface Builder.
+* AuthenticationManager
   * Agregar propiedad privada nonatomic, strong, tipo NSString que se llame "token".
   * Asignar el token del response del login a esa propiedad
 

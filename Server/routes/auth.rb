@@ -24,19 +24,43 @@ post '/login' do
     return res.to_json
   end
   
-  query = "SELECT * FROM User WHERE username=#{data["username"]}"
+  query = "SELECT * FROM User WHERE username='#{data["username"]}'"
   result = @@mysqlclient.query(query, as: :hash)
   results_array = Array.new
   result.each do |row|
     results_array.push(row)
   end
   
-  # 1. Checar que el arreglo contenga un usuario
-  # 2. Checar que el usuario tenga la misma clave que el data["password"]
-  # 3. Generar token único y guardarlo en el usuario (esto implica un query)
-  # 4. Regresar message y token en el response
+  if results_array.count == 0
+   status 400
+   res = { message: "That username doesn't exist."}
+   content_type :json
+   return res.to_json
+  end
   
-  res = { message: "Logged in successfully.", token: null }
+  user_hash = results_array[0]
+  unless user_hash["password"] == data["password"]
+    status 400
+    res = { message: "The password is incorrect."}
+    content_type :json
+    return res.to_json
+  end
+  
+  users_with_token = nil
+  while users_with_token == nil
+   token = SecureRandom.hex
+   query = "SELECT * FROM User WHERE token='#{token}'"
+   users_with_token = @@mysqlclient.query(query, as: :hash)
+   
+   if users_with_token.count == 0
+     query =  "UPDATE User SET token='#{token}' WHERE id=#{user_hash["id"]}"
+     @@mysqlclient.query(query, as: :hash)
+   else
+     users_with_token = nil
+   end
+  end
+  
+  res = { message: "Logged in successfully.", token: token }
   content_type :json
   res.to_json
 end

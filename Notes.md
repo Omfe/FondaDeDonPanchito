@@ -5,9 +5,7 @@
 
 ### Server
 
-* Actualizar la DB para que User tenga columna "token" de tipo VARCHAR
 * CRUD para Auth
-  * POST /login
   * POST /logout
   * POST /register
 * Agregar código a todas las rutas de Meal y Items para que requieran del token

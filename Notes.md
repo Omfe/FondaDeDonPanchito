@@ -20,7 +20,9 @@
 
 ### Client
 
-* 
+* AuthenticationController
+  * Agregar propiedad privada nonatomic, strong, tipo NSString que se llame "token".
+  * Asignar el token del response del login a esa propiedad
 
 #### UI
 

@@ -8,9 +8,9 @@
 
 typedef void(^FDDPAuthenticationLoginCompletionBlock)(NSString *message, NSError *error);
 
-@interface FDDPAuthenticationController : NSObject
+@interface FDDPAuthenticationManager : NSObject
 
-+ (FDDPAuthenticationController *)sharedAuthenticationController;
++ (FDDPAuthenticationManager *)sharedManager;
 
 - (void)loginWithUsername:(NSString *)username withPassword:(NSString *)password andCompletion:(FDDPAuthenticationLoginCompletionBlock)completion;
 

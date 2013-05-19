@@ -6,25 +6,25 @@
 //  Copyright (c) 2013 Omar Gudino. All rights reserved.
 //
 
-#import "FDDPAuthenticationController.h"
+#import "FDDPAuthenticationManager.h"
 
 #define kServerURL @"http://localhost:4567"
 
-@interface FDDPAuthenticationController ()
+@interface FDDPAuthenticationManager ()
 
 //
 
 @end
 
-@implementation FDDPAuthenticationController
+@implementation FDDPAuthenticationManager
 
-static FDDPAuthenticationController *_sharedAuthenticationController = nil;
-+ (FDDPAuthenticationController *)sharedAuthenticationController
+static FDDPAuthenticationManager *_sharedAuthenticationManager = nil;
++ (FDDPAuthenticationManager *)sharedManager
 {
-    if (!_sharedAuthenticationController) {
-        _sharedAuthenticationController = [[FDDPAuthenticationController alloc] init];
+    if (!_sharedAuthenticationManager) {
+        _sharedAuthenticationManager = [[FDDPAuthenticationManager alloc] init];
     }
-    return _sharedAuthenticationController;
+    return _sharedAuthenticationManager;
 }
 
 #pragma mark - Public Methods

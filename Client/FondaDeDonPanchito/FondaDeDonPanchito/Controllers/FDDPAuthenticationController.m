@@ -28,7 +28,7 @@ static FDDPAuthenticationController *_sharedAuthenticationController = nil;
 }
 
 #pragma mark - Public Methods
-- (void)loginWithUsername:(NSString *)username withPassword:(NSString *)password
+- (void)loginWithUsername:(NSString *)username withPassword:(NSString *)password andCompletion:(FDDPAuthenticationLoginCompletionBlock)completion
 {
     NSMutableURLRequest *urlRequest;
     NSURL *url;
@@ -50,13 +50,18 @@ static FDDPAuthenticationController *_sharedAuthenticationController = nil;
         NSDictionary *responseDictionary;
         
         if (error) {
-            NSLog(@"%@", error.localizedDescription);
+            if (completion) {
+                completion(nil, error);
+            }
             return;
         }
         
         responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-        NSLog(@"Message: %@", responseDictionary[@"message"]);
         NSLog(@"Token: %@", responseDictionary[@"token"]);
+        
+        if (completion) {
+            completion(responseDictionary[@"message"], nil);
+        }
     }];
 }
 

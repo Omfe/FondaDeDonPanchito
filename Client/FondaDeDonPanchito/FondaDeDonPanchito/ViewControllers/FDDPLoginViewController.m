@@ -48,7 +48,11 @@
 - (void)_login
 {
     [self.view endEditing:YES];
-    [[FDDPAuthenticationController sharedAuthenticationController] loginWithUsername:self.usernameTextField.text withPassword:self.passwordTextField.text];
+    [[FDDPAuthenticationController sharedAuthenticationController] loginWithUsername:self.usernameTextField.text withPassword:self.passwordTextField.text andCompletion:^(NSString *message, NSError *error) {
+        if (error) {
+            [[[UIAlertView alloc] initWithTitle:@"There was an error!" message:[NSString stringWithFormat:@"%@", error.localizedDescription] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+        }
+    }];
 }
 
 @end

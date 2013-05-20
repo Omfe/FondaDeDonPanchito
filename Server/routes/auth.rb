@@ -67,6 +67,37 @@ end
 
 # http://localhost:4567/logout
 post '/logout' do
+  unless request.body.read.empty?
+    request.body.rewind # because "read" method is IO thing and the unless condition is ending it
+    data = JSON.parse request.body.read
+  else
+    status 400
+    res = { message: "Request without body." }
+    content_type :json
+    return res.to_json
+  end
+  
+  query = "SELECT * FROM User WHERE token='#{data["token"]}'"
+  result = @@mysqlclient.query(query, as: :hash)
+  results_array = Array.new
+  result.each do |row|
+    results_array.push(row)
+  end
+  
+  if results_array.count == 0
+   status 200
+   res = { message: "No user found with that token."}
+   content_type :json
+   return res.to_json
+  end
+  
+  user_hash = results_array[0]
+  query =  "UPDATE User SET token=NULL WHERE id=#{user_hash["id"]}"
+  @@mysqlclient.query(query, as: :hash)
+  
+  res = { message: "Successfully logged out." }
+  content_type :json
+  res.to_json
   
 end
 

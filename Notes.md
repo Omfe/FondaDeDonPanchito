@@ -26,6 +26,13 @@
   * Agregar propiedad privada nonatomic, strong, tipo NSString que se llame "token".
   * Asignar el token del response del login a esa propiedad
 * Crear RegistryViewController
+* LoginViewController
+  * Hacer un método "_pushToRegistry" tipo void y no recibe nada
+  * En ese método, declarar:
+    * UITabBarController *tabBarController
+    * FDDPRegistryViewController *registryViewController
+  * Inicialiar los dos (primero el registry), al tabBarController (pasarle un arreglo que contiene al registry)
+  * El LoginViewController pertenece a un NavigationController (ver AppDelegate para comprobar), por ende tiene una propiedad "navigationController", mandarle llamar pushViewController:anmiated: a esa propiedad, el primer parámetro que tenemos que mandar va a ser el tabBarController, YES animado
 
 
 #### UI

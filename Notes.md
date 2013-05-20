@@ -12,19 +12,25 @@
 
 ### Client
 
-* AuthenticationController
+* LoginViewController
+  * Hacer el segundo TextField "secure" (que salgan bolitas cuando escribes) en Interface Builder.
+* AuthenticationManager
   * Agregar propiedad privada nonatomic, strong, tipo NSString que se llame "token".
   * Asignar el token del response del login a esa propiedad
+* Crear RegistryViewController
+
 
 #### UI
 
-* Login Screen
-* Una vez determinado si es Admin o no, irse a la interfaz uno o dos tabs extras apareceran si es Admin, en todo lo demas son iguales
-* Interfaz tener divisiones: Miembros, Registro y Admin (si es admin la opcion sera visible)
-* Miembros - falta determinar
-* Registro - tendra tabs de las ordenes que se vayan abriendo y se le incluyen lo que se vaya pidiendo en esa orden
+* Login
+* Register
+  * Tendra tabs de las ordenes que se vayan abriendo y se le incluyen lo que se vaya pidiendo en esa orden
+* Members
+* Admin (hidden if user isn't Admin)
+
 
 ----
+
 Ir a mesa
 Anotar parte de orden
 Ir a registro
@@ -33,5 +39,4 @@ abrir nuevo tab
 agregar lo que se ah pedido
 ej (escojer de seccion de bebidas, dos limonadas)
 cada que se abra un nuevo tab, ingresar ID de mesero
-
 

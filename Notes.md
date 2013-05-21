@@ -5,6 +5,7 @@
 
 ### Server
 
+* Regresar aparte del token, el hash con toda la información del usuario.
 * CRUD para Auth
   * POST /register
 * Agregar código a todas las rutas de Meal y Items para que requieran del token
@@ -12,19 +13,14 @@
 
 ### Client
 
-* LoginViewController
-  * Hacer el segundo TextField "secure" (que salgan bolitas cuando escribes) en Interface Builder.
+* Crear UserInfoViewController
+	* Agregarlo al arreglo del tabController
+	* Agregar un label con primer nombre, apeido y username (una para cada uno)
+	* Boton de Log out
 * AuthenticationManager
-  * Agregar propiedad privada nonatomic, strong, tipo NSString que se llame "token".
-  * Asignar el token del response del login a esa propiedad
-* Crear RegistryViewController
-* LoginViewController
-  * Hacer un método "_pushToRegistry" tipo void y no recibe nada
-  * En ese método, declarar:
-    * UITabBarController *tabBarController
-    * FDDPRegistryViewController *registryViewController
-  * Inicialiar los dos (primero el registry), al tabBarController (pasarle un arreglo que contiene al registry)
-  * El LoginViewController pertenece a un NavigationController (ver AppDelegate para comprobar), por ende tiene una propiedad "navigationController", mandarle llamar pushViewController:anmiated: a esa propiedad, el primer parámetro que tenemos que mandar va a ser el tabBarController, YES animado
+	* Borrar propiedad token
+	* Crear propiedad publica loggedInUser (tipo FDDPUser)
+	* ...
 
 
 #### UI

@@ -12,7 +12,7 @@
 
 @interface FDDPAuthenticationManager ()
 
-//
+@property (nonatomic, strong) NSString *token;
 
 @end
 
@@ -57,6 +57,7 @@ static FDDPAuthenticationManager *_sharedAuthenticationManager = nil;
         }
         
         responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        self.token = responseDictionary[@"token"];
         NSLog(@"Token: %@", responseDictionary[@"token"]);
         
         if (completion) {

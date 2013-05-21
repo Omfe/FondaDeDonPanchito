@@ -8,6 +8,7 @@
 
 #import "FDDPLoginViewController.h"
 #import "FDDPAuthenticationManager.h"
+#import "FDDPRegistryViewController.h"
 
 @interface FDDPLoginViewController () <UITextFieldDelegate>
 
@@ -51,8 +52,21 @@
     [[FDDPAuthenticationManager sharedManager] loginWithUsername:self.usernameTextField.text withPassword:self.passwordTextField.text andCompletion:^(NSString *message, NSError *error) {
         if (error) {
             [[[UIAlertView alloc] initWithTitle:@"There was an error!" message:[NSString stringWithFormat:@"%@", error.localizedDescription] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+            return;
         }
+        [self _pushToRegistry];
     }];
+}
+
+- (void)_pushToRegistry
+{
+    UITabBarController *tabBarController;
+    FDDPRegistryViewController *registryViewController;
+    
+    registryViewController = [[FDDPRegistryViewController alloc] init];
+    tabBarController = [[UITabBarController alloc] init];
+    [tabBarController setViewControllers:@[registryViewController] animated:YES];
+    [self.navigationController pushViewController:tabBarController animated:YES];
 }
 
 @end

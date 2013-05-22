@@ -60,7 +60,15 @@ post '/login' do
    end
   end
   
-  res = { message: "Logged in successfully.", token: token }
+  query = "SELECT id, firstName, username, isAdmin, lastName, token FROM User WHERE id='#{user_hash["id"]}'"
+  result = @@mysqlclient.query(query, as: :hash)
+  results_array = Array.new
+  result.each do |row|
+    results_array.push(row)
+  end
+  user_hash = results_array[0]
+  
+  res = { message: "Logged in successfully.", user: user_hash }
   content_type :json
   res.to_json
 end

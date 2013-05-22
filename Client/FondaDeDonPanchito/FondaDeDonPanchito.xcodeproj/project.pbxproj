@@ -21,10 +21,13 @@
 		9925F15B1739DEFA00070080 /* FDDPOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9925F15A1739DEFA00070080 /* FDDPOrder.m */; };
 		9925F15E1739DF0C00070080 /* FDDPUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9925F15D1739DF0C00070080 /* FDDPUser.m */; };
 		9925F1611739DF1E00070080 /* FDDPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9925F1601739DF1E00070080 /* FDDPClient.m */; };
+		99963710174C5750005FC93C /* FDDPUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9996370E174C574F005FC93C /* FDDPUserInfoViewController.m */; };
+		99963711174C5750005FC93C /* FDDPUserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9996370F174C574F005FC93C /* FDDPUserInfoViewController.xib */; };
+		99963715174C57B5005FC93C /* FDDPRegistryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99963713174C57B5005FC93C /* FDDPRegistryViewController.m */; };
+		99963716174C57B5005FC93C /* FDDPRegistryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99963714174C57B5005FC93C /* FDDPRegistryViewController.xib */; };
 		99A4CF0317473494000FED65 /* FDDPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99A4CF0117473494000FED65 /* FDDPLoginViewController.m */; };
 		99A4CF0417473494000FED65 /* FDDPLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99A4CF0217473494000FED65 /* FDDPLoginViewController.xib */; };
 		99A4CF0717473C41000FED65 /* FDDPAuthenticationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 99A4CF0617473C41000FED65 /* FDDPAuthenticationManager.m */; };
-		99A4CF0A1749D77C000FED65 /* FDDPRegistryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99A4CF091749D77C000FED65 /* FDDPRegistryViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,13 +54,17 @@
 		9925F15D1739DF0C00070080 /* FDDPUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDDPUser.m; sourceTree = "<group>"; };
 		9925F15F1739DF1E00070080 /* FDDPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDDPClient.h; sourceTree = "<group>"; };
 		9925F1601739DF1E00070080 /* FDDPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDDPClient.m; sourceTree = "<group>"; };
+		9996370D174C574F005FC93C /* FDDPUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDDPUserInfoViewController.h; sourceTree = "<group>"; };
+		9996370E174C574F005FC93C /* FDDPUserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDDPUserInfoViewController.m; sourceTree = "<group>"; };
+		9996370F174C574F005FC93C /* FDDPUserInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FDDPUserInfoViewController.xib; sourceTree = "<group>"; };
+		99963712174C57B5005FC93C /* FDDPRegistryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDDPRegistryViewController.h; sourceTree = "<group>"; };
+		99963713174C57B5005FC93C /* FDDPRegistryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDDPRegistryViewController.m; sourceTree = "<group>"; };
+		99963714174C57B5005FC93C /* FDDPRegistryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FDDPRegistryViewController.xib; sourceTree = "<group>"; };
 		99A4CF0017473494000FED65 /* FDDPLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDDPLoginViewController.h; sourceTree = "<group>"; };
 		99A4CF0117473494000FED65 /* FDDPLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDDPLoginViewController.m; sourceTree = "<group>"; };
 		99A4CF0217473494000FED65 /* FDDPLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FDDPLoginViewController.xib; sourceTree = "<group>"; };
 		99A4CF0517473C41000FED65 /* FDDPAuthenticationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDDPAuthenticationManager.h; sourceTree = "<group>"; };
 		99A4CF0617473C41000FED65 /* FDDPAuthenticationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDDPAuthenticationManager.m; sourceTree = "<group>"; };
-		99A4CF081749D77C000FED65 /* FDDPRegistryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDDPRegistryViewController.h; sourceTree = "<group>"; };
-		99A4CF091749D77C000FED65 /* FDDPRegistryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDDPRegistryViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,8 +96,12 @@
 				99A4CF0017473494000FED65 /* FDDPLoginViewController.h */,
 				99A4CF0117473494000FED65 /* FDDPLoginViewController.m */,
 				99A4CF0217473494000FED65 /* FDDPLoginViewController.xib */,
-				99A4CF081749D77C000FED65 /* FDDPRegistryViewController.h */,
-				99A4CF091749D77C000FED65 /* FDDPRegistryViewController.m */,
+				99963712174C57B5005FC93C /* FDDPRegistryViewController.h */,
+				99963713174C57B5005FC93C /* FDDPRegistryViewController.m */,
+				99963714174C57B5005FC93C /* FDDPRegistryViewController.xib */,
+				9996370D174C574F005FC93C /* FDDPUserInfoViewController.h */,
+				9996370E174C574F005FC93C /* FDDPUserInfoViewController.m */,
+				9996370F174C574F005FC93C /* FDDPUserInfoViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -223,6 +234,8 @@
 				990A7790172DF7D200DB1600 /* Default@2x.png in Resources */,
 				990A7792172DF7D200DB1600 /* Default-568h@2x.png in Resources */,
 				99A4CF0417473494000FED65 /* FDDPLoginViewController.xib in Resources */,
+				99963711174C5750005FC93C /* FDDPUserInfoViewController.xib in Resources */,
+				99963716174C57B5005FC93C /* FDDPRegistryViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,7 +255,8 @@
 				9925F1611739DF1E00070080 /* FDDPClient.m in Sources */,
 				99A4CF0317473494000FED65 /* FDDPLoginViewController.m in Sources */,
 				99A4CF0717473C41000FED65 /* FDDPAuthenticationManager.m in Sources */,
-				99A4CF0A1749D77C000FED65 /* FDDPRegistryViewController.m in Sources */,
+				99963710174C5750005FC93C /* FDDPUserInfoViewController.m in Sources */,
+				99963715174C57B5005FC93C /* FDDPRegistryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

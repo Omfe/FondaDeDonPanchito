@@ -1,5 +1,5 @@
 //
-//  FDDPRegistryViewController.h
+//  FDDPUserInfoViewController.h
 //  FondaDeDonPanchito
 //
 //  Created by Omar Gudino on 5/21/13.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FDDPRegistryViewController : UIViewController
+@interface FDDPUserInfoViewController : UIViewController
 
 @end

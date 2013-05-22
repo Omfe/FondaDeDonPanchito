@@ -9,6 +9,7 @@
 #import "FDDPLoginViewController.h"
 #import "FDDPAuthenticationManager.h"
 #import "FDDPRegistryViewController.h"
+#import "FDDPUserInfoViewController.h"
 
 @interface FDDPLoginViewController () <UITextFieldDelegate>
 
@@ -62,10 +63,11 @@
 {
     UITabBarController *tabBarController;
     FDDPRegistryViewController *registryViewController;
+    FDDPUserInfoViewController *userInfoVIewController;
     
     registryViewController = [[FDDPRegistryViewController alloc] init];
     tabBarController = [[UITabBarController alloc] init];
-    [tabBarController setViewControllers:@[registryViewController] animated:YES];
+    [tabBarController setViewControllers:@[registryViewController, userInfoVIewController] animated:YES];
     [self.navigationController pushViewController:tabBarController animated:YES];
 }
 

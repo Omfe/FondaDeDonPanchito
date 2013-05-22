@@ -10,4 +10,6 @@
 
 @interface FDDPUser : NSObject
 
+- (void)updateFromDictionary:(NSDictionary *)dictionary;
+
 @end

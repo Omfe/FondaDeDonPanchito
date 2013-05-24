@@ -66,6 +66,7 @@
     FDDPUserInfoViewController *userInfoVIewController;
     
     registryViewController = [[FDDPRegistryViewController alloc] init];
+    userInfoVIewController = [[FDDPUserInfoViewController alloc] init];
     tabBarController = [[UITabBarController alloc] init];
     [tabBarController setViewControllers:@[registryViewController, userInfoVIewController] animated:YES];
     [self.navigationController pushViewController:tabBarController animated:YES];

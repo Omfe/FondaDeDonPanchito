@@ -10,4 +10,9 @@
 
 @interface FDDPItem : NSObject
 
+@property (strong, nonatomic) NSNumber *itemId;
+@property (strong, nonatomic) NSString *itemName;
+@property (strong, nonatomic) NSNumber *itemPrice;
+@property (strong, nonatomic) NSNumber *isActive;
+
 @end

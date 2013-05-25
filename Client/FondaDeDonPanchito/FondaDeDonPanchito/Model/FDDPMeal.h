@@ -10,4 +10,9 @@
 
 @interface FDDPMeal : NSObject
 
+@property (strong, nonatomic) NSNumber *mealId;
+@property (strong, nonatomic) NSNumber *mealPrice;
+@property (strong, nonatomic) NSString *mealName;
+@property (strong, nonatomic) NSNumber *isActive;
+
 @end

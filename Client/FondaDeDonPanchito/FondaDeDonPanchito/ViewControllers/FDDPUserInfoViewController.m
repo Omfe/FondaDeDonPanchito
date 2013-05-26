@@ -10,12 +10,13 @@
 #import "FDDPAuthenticationManager.h"
 #import "FDDPUser.h"
 
-@interface FDDPUserInfoViewController ()
+@interface FDDPUserInfoViewController () <UIActionSheetDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *firstNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *lastNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *UIButtonlogOutButton;
 
+@property (strong, nonatomic) UIActionSheet *logoutActionSheet;
 
 @end
 
@@ -31,8 +32,16 @@
     self.firstNameLabel.text = user.firstName;
     self.lastNameLabel.text = user.lastname;
     self.usernameLabel.text = user.username;
-    
-    NSLog(@"%@", user.firstName);
 }
+
+- (IBAction)logoutButtonWasPressed:(id)sender {
+    
+    
+    self.logoutActionSheet = [[UIActionSheet alloc] initWithTitle:@"Logout?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Logout" otherButtonTitles:nil, nil];
+    [self.logoutActionSheet showInView:self.view];
+    self.logoutActionSheet.delegate = self;
+    
+}
+
 
 @end

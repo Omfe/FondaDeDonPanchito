@@ -22,11 +22,19 @@
 
 @implementation FDDPUserInfoViewController
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        self.title = @"User Info";
+    }
+    return self;
+}
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
     FDDPUser *user;
+    [super viewDidLoad];
     
     user = [[FDDPAuthenticationManager sharedManager] loggedInUser];
     self.firstNameLabel.text = user.firstName;

@@ -23,7 +23,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     self.title = @"Login";
+    [self.usernameTextField becomeFirstResponder];
 }
 
 
@@ -33,7 +35,7 @@
     if ( textField == self.usernameTextField ) {
         [self.passwordTextField becomeFirstResponder];
     } else {
-        [self _login];
+        [self login];
     }
     
     return YES;
@@ -43,12 +45,12 @@
 #pragma mark - Action Methods
 - (IBAction)loginButtonWasPressed:(id)sender
 {
-    [self _login];
+    [self login];
 }
 
 
 #pragma mark - Private Methods
-- (void)_login
+- (void)login
 {
     [self.view endEditing:YES];
     [[FDDPAuthenticationManager sharedManager] loginWithUsername:self.usernameTextField.text withPassword:self.passwordTextField.text andCompletion:^(NSString *message, NSError *error) {
@@ -56,20 +58,21 @@
             [[[UIAlertView alloc] initWithTitle:@"There was an error!" message:[NSString stringWithFormat:@"%@", error.localizedDescription] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
             return;
         }
-        [self _pushToRegistry];
+        [self pushToRegistry];
     }];
 }
 
-- (void)_pushToRegistry
+- (void)pushToRegistry
 {
     UITabBarController *tabBarController;
     FDDPRegistryViewController *registryViewController;
     FDDPUserInfoViewController *userInfoVIewController;
     
-    registryViewController = [[FDDPRegistryViewController alloc] init];
-    userInfoVIewController = [[FDDPUserInfoViewController alloc] init];
-    userInfoVIewController.title = @"UserInfo";
+    registryViewController = [[FDDPRegistryViewController alloc] initWithNibName:@"FDDPRegistryViewController" bundle:nil];
+    userInfoVIewController = [[FDDPUserInfoViewController alloc] initWithNibName:@"FDDPUserInfoViewController" bundle:nil];
+    
     tabBarController = [[UITabBarController alloc] init];
+    tabBarController.navigationItem.hidesBackButton = YES;
     [tabBarController setViewControllers:@[registryViewController, userInfoVIewController] animated:YES];
     [self.navigationController pushViewController:tabBarController animated:YES];
 }

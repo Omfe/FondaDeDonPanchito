@@ -10,4 +10,15 @@
 
 @implementation FDDPUser
 
+- (void)updateFromDictionary:(NSDictionary *)dictionary
+{
+    self.username = dictionary[@"username"];
+    self.userId = dictionary[@"id"];
+    self.firstName = dictionary[@"firstName"];
+    self.isAdmin = dictionary[@"isAdmin"];
+    self.password = dictionary[@"password"];
+    self.lastname = dictionary[@"lastName"];
+    self.token = dictionary[@"token"];
+}
+
 @end

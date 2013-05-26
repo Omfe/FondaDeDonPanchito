@@ -23,6 +23,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.title = @"Login";
 }
 
 
@@ -67,6 +68,7 @@
     
     registryViewController = [[FDDPRegistryViewController alloc] init];
     userInfoVIewController = [[FDDPUserInfoViewController alloc] init];
+    userInfoVIewController.title = @"UserInfo";
     tabBarController = [[UITabBarController alloc] init];
     [tabBarController setViewControllers:@[registryViewController, userInfoVIewController] animated:YES];
     [self.navigationController pushViewController:tabBarController animated:YES];

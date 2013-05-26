@@ -7,6 +7,7 @@
 //
 
 #import "FDDPAuthenticationManager.h"
+#import "FDDPUser.h"
 
 #define kServerURL @"http://localhost:4567"
 
@@ -55,8 +56,10 @@ static FDDPAuthenticationManager *_sharedAuthenticationManager = nil;
         }
         
         responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-       // self.token = responseDictionary[@"token"];
-        NSLog(@"Token: %@", responseDictionary[@"token"]);
+        if (!self.loggedInUser) {
+            self.loggedInUser = [[FDDPUser alloc] init];
+        }
+        [self.loggedInUser updateFromDictionary:responseDictionary[@"user"]];
         
         if (completion) {
             completion(responseDictionary[@"message"], nil);

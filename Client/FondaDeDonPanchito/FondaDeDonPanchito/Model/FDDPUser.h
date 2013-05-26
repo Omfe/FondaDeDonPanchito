@@ -12,7 +12,7 @@
 
 @property (strong, nonatomic) NSNumber *userId;
 @property (strong, nonatomic) NSString *firstName;
-@property (strong, nonatomic) NSString *userName;
+@property (strong, nonatomic) NSString *username;
 @property (strong, nonatomic) NSNumber *isAdmin;
 @property (strong, nonatomic) NSString *password;
 @property (strong, nonatomic) NSString *lastname;

@@ -5,22 +5,12 @@
 
 ### Server
 
-* Regresar aparte del token, el hash con toda la información del usuario.
-* CRUD para Auth
-  * POST /register
 * Agregar código a todas las rutas de Meal y Items para que requieran del token
 
 
 ### Client
 
-* Crear UserInfoViewController
-	* Agregarlo al arreglo del tabController
-	* Agregar un label con primer nombre, apeido y username (una para cada uno)
-	* Boton de Log out
-* AuthenticationManager
-	* Borrar propiedad token
-	* Crear propiedad publica loggedInUser (tipo FDDPUser)
-	* ...
+* 
 
 
 #### UI

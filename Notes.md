@@ -5,28 +5,23 @@
 
 ### Server
 
-* Regresar aparte del token, el hash con toda la información del usuario.
-* CRUD para Auth
-  * POST /register
 * Agregar código a todas las rutas de Meal y Items para que requieran del token
 
 
 ### Client
 
-* Crear UserInfoViewController
-	* Agregarlo al arreglo del tabController
-	* Agregar un label con primer nombre, apeido y username (una para cada uno)
-	* Boton de Log out
-* AuthenticationManager
-	* Borrar propiedad token
-	* Crear propiedad publica loggedInUser (tipo FDDPUser)
-	* ...
+* Crear AdminViewController
+* En LoginViewController hacer un método privado que regrese un BOOL que se llame shouldShowAdminScreen
+* En ese método, regresar YES si el loggedInUser es admin, NO si no
+* En pushToRegistry usar ese método para saber si inicializar y agregarlo al arreglo de los controles del tabBarController
 
 
 #### UI
 
 * Login
 * Register
+  * Order
+    * Meals & Items
   * Tendra tabs de las ordenes que se vayan abriendo y se le incluyen lo que se vaya pidiendo en esa orden
 * Members
 * Admin (hidden if user isn't Admin)

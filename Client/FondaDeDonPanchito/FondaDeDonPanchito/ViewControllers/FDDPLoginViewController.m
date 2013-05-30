@@ -46,7 +46,6 @@
 - (IBAction)loginButtonWasPressed:(id)sender
 {
     [self login];
-    self.passwordTextField.text = @"";
 }
 
 
@@ -60,6 +59,7 @@
             return;
         }
         [self pushToRegistry];
+        self.passwordTextField.text = @"";
     }];
 }
 

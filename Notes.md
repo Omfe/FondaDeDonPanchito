@@ -10,13 +10,18 @@
 
 ### Client
 
-* 
+* Crear AdminViewController
+* En LoginViewController hacer un método privado que regrese un BOOL que se llame shouldShowAdminScreen
+* En ese método, regresar YES si el loggedInUser es admin, NO si no
+* En pushToRegistry usar ese método para saber si inicializar y agregarlo al arreglo de los controles del tabBarController
 
 
 #### UI
 
 * Login
 * Register
+  * Order
+    * Meals & Items
   * Tendra tabs de las ordenes que se vayan abriendo y se le incluyen lo que se vaya pidiendo en esa orden
 * Members
 * Admin (hidden if user isn't Admin)

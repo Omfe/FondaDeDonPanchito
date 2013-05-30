@@ -5,7 +5,9 @@
 
 ### Server
 
-* Agregar código a todas las rutas de Meal y Items para que requieran del token
+* Implementar el método verifyLoggedIn del app.rb
+  * Revisar en la base de datos que ese token exista, si no, mandar un error de response
+* Utilizar el método de app.rb "verifyLoggedIn" al principio de todos los métodos en los otros archivos (menos en auth.rb)
 
 
 ### Client

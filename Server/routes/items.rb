@@ -1,5 +1,7 @@
 # http://localhost:4567/items
 get '/items' do
+  verifyLoggedIn
+  
   results_array = Array.new
   
   query = "SELECT * FROM Item"

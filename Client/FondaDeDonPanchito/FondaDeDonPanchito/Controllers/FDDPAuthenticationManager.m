@@ -67,4 +67,40 @@ static FDDPAuthenticationManager *_sharedAuthenticationManager = nil;
     }];
 }
 
+- (void)logoutWithToken:(NSString *)token andCompletion:(FDDPAuthenticationLogoutCompletionBlock)completion
+{
+    NSMutableURLRequest *urlRequest;
+    NSURL *url;
+    NSString *urlString;
+    NSData *bodyData;
+    NSDictionary *bodyDictionary;
+    
+    urlString = [kServerURL stringByAppendingPathComponent:@"logout"];
+    url = [NSURL URLWithString:urlString];
+    urlRequest = [NSMutableURLRequest requestWithURL:url];
+    [urlRequest setHTTPMethod:@"POST"];
+    
+    bodyDictionary = @{@"token": token};
+    bodyData = [NSJSONSerialization dataWithJSONObject:bodyDictionary options:0 error:nil];
+    [urlRequest setHTTPBody:bodyData];
+    
+    [NSURLConnection sendAsynchronousRequest:urlRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *urlResponse, NSData *data, NSError *error){
+        NSDictionary *responseDictionary;
+        
+        if (error) {
+            if (completion) {
+                completion(nil, error);
+            }
+            return;
+        }
+        
+        responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        self.loggedInUser = nil;
+        
+        if (completion) {
+            completion(responseDictionary[@"message"], nil);
+        }
+    }];
+}
+
 @end

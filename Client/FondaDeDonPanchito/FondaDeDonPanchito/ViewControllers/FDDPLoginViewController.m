@@ -46,6 +46,7 @@
 - (IBAction)loginButtonWasPressed:(id)sender
 {
     [self login];
+    self.passwordTextField.text = @"";
 }
 
 
@@ -66,14 +67,14 @@
 {
     UITabBarController *tabBarController;
     FDDPRegistryViewController *registryViewController;
-    FDDPUserInfoViewController *userInfoVIewController;
+    FDDPUserInfoViewController *userInfoViewController;
     
     registryViewController = [[FDDPRegistryViewController alloc] initWithNibName:@"FDDPRegistryViewController" bundle:nil];
-    userInfoVIewController = [[FDDPUserInfoViewController alloc] initWithNibName:@"FDDPUserInfoViewController" bundle:nil];
+    userInfoViewController = [[FDDPUserInfoViewController alloc] initWithNibName:@"FDDPUserInfoViewController" bundle:nil];
     
     tabBarController = [[UITabBarController alloc] init];
     tabBarController.navigationItem.hidesBackButton = YES;
-    [tabBarController setViewControllers:@[registryViewController, userInfoVIewController] animated:YES];
+    [tabBarController setViewControllers:@[registryViewController, userInfoViewController] animated:YES];
     [self.navigationController pushViewController:tabBarController animated:YES];
 }
 

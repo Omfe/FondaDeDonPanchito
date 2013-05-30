@@ -9,6 +9,7 @@
 #import "FDDPUserInfoViewController.h"
 #import "FDDPAuthenticationManager.h"
 #import "FDDPUser.h"
+#import "FDDPLoginViewController.h"
 
 @interface FDDPUserInfoViewController () <UIActionSheetDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *firstNameLabel;
@@ -46,9 +47,28 @@
     
     
     self.logoutActionSheet = [[UIActionSheet alloc] initWithTitle:@"Logout?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Logout" otherButtonTitles:nil, nil];
-    [self.logoutActionSheet showInView:self.view];
+    [self.logoutActionSheet showFromTabBar:self.tabBarController.tabBar];
     self.logoutActionSheet.delegate = self;
     
+}
+
+- (void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    FDDPUser *user;
+    FDDPLoginViewController *loginViewController;
+    loginViewController = [[FDDPLoginViewController alloc] initWithNibName:@"FDDPLoginViewController" bundle:nil];
+    user = [[FDDPAuthenticationManager sharedManager] loggedInUser];
+    
+    if (buttonIndex == 0){
+        [self.view endEditing:YES];
+        [[FDDPAuthenticationManager sharedManager] logoutWithToken:user.token andCompletion:^(NSString *message, NSError *error) {
+            if (error) {
+                [[[UIAlertView alloc] initWithTitle:@"There was an error!" message:[NSString stringWithFormat:@"%@", error.localizedDescription] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+                return;
+            }
+        }];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 

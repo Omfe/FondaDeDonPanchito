@@ -8,6 +8,7 @@
 #import "FDDPUser.h"
 
 typedef void(^FDDPAuthenticationLoginCompletionBlock)(NSString *message, NSError *error);
+typedef void (^FDDPAuthenticationLogoutCompletionBlock)(NSString *message, NSError *error);
 
 @interface FDDPAuthenticationManager : NSObject
 
@@ -16,5 +17,6 @@ typedef void(^FDDPAuthenticationLoginCompletionBlock)(NSString *message, NSError
 + (FDDPAuthenticationManager *)sharedManager;
 
 - (void)loginWithUsername:(NSString *)username withPassword:(NSString *)password andCompletion:(FDDPAuthenticationLoginCompletionBlock)completion;
+- (void)logoutWithToken:(NSString *)token andCompletion:(FDDPAuthenticationLogoutCompletionBlock)completion;
 
 @end

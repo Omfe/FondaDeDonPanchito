@@ -10,18 +10,7 @@
 
 ### Client
 
-* RegistryViewController
-  * Agregar los sigueintes métodos "Action":
-    * addNewOrder:, IBOutlet, recibe "sender" de tipo id
-  * Agregar los siguientes métodos privados:
-    * fetchAllOrders, void, no recibe nada
-  * Mandar llamar fetchAllOrders en viewDidLoad:
-* AuthenicationManager
-  * Agregar método públic fetchAllOrders:, void, recibe un bloque
-    * El bloque recibe un NSArray (orders) y un NSError (error)
-  * Implementar el método y mandar llamar el servicio adecuado
-* RegistryViewController
-  * en fetchAllOrders, mandar a fetchAllOrders: del AuthenticationManager
+* 
 
 
 #### UI

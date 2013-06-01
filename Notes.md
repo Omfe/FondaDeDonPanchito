@@ -12,10 +12,20 @@
 
 ### Client
 
-* Crear AdminViewController
-* En LoginViewController hacer un método privado que regrese un BOOL que se llame shouldShowAdminScreen
-* En ese método, regresar YES si el loggedInUser es admin, NO si no
-* En pushToRegistry usar ese método para saber si inicializar y agregarlo al arreglo de los controles del tabBarController
+* RegistryViewController
+  * Declarar propiedades privadas:
+    * weak, IBOutlet, UITableView, ordersTableView
+    * strong, NSArray, ordersArray
+  * Conformarse a UITableViewDelegate y UITableViewDataSource en la interfaz privada
+  * Agregar un UITableView en el .xib
+  * Conectar el delegate y dataSource al File's Owner
+  * Implementar los métodos required del UITableViewDataSource
+  * Implementar didSelectRowAtIndexPath: del UITableViewDelegate
+* OrderViewController
+* OrderEditorViewController
+* MealEditorViewController
+* ItemChooserViewController
+* ItemEditorViewController
 
 
 #### UI

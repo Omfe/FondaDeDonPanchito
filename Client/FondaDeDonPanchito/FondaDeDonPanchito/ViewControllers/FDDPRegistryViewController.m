@@ -29,6 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self fetchAllOrders];
 }
 
 
@@ -50,4 +51,20 @@
     
 }
 
+
+#pragma mark - Action Methods
+- (IBAction)addNewOrder:(id)sender
+{
+    
+}
+
+
+#pragma mark - Private Method
+- (void)fetchAllOrders
+{
+    
+}
 @end
+//* Agregar los siguientes métodos privados:
+//* fetchAllOrders, void, no recibe nada
+//* Mandar llamar fetchAllOrders en viewDidLoad:

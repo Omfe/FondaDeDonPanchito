@@ -8,9 +8,9 @@
 
 #import "FDDPRegistryViewController.h"
 
-@interface FDDPRegistryViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface FDDPRegistryViewController () <UITableViewDelegate, UITableViewDataSource>
 
-@property (weak,nonatomic) IBOutlet UITableView *ordersTableView;
+@property (weak, nonatomic) IBOutlet UITableView *ordersTableView;
 @property (strong, nonatomic) NSArray *ordersArray;
 
 @end
@@ -31,23 +31,24 @@
     [super viewDidLoad];
 }
 
-#pragma mark - UITableViewDelegate Methods
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-}
 
 #pragma mark - UITableViewDataSource Methods
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.ordersArray.count;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+
+#pragma mark - UITableViewDelegate Methods
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
 }
+//5. Regresa el count del ordersArray en numberOfRowsInSection:
 
 @end

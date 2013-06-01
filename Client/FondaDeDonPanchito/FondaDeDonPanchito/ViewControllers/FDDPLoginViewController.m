@@ -81,27 +81,19 @@
     
     if ([self shouldShowAdminScreen]) {
         [tabBarController setViewControllers:@[registryViewController, userInfoViewController, adminViewController] animated:YES];
-        [self.navigationController pushViewController:tabBarController animated:YES];
     } else{
-
     [tabBarController setViewControllers:@[registryViewController, userInfoViewController] animated:YES];
-    [self.navigationController pushViewController:tabBarController animated:YES];
     }
+    
+    [self.navigationController pushViewController:tabBarController animated:YES];
 }
 
 - (BOOL)shouldShowAdminScreen
 {
-    FDDPUser *user;;
+    FDDPUser *user;
     user = [[FDDPAuthenticationManager sharedManager] loggedInUser];
     
-    if (!user.isAdmin.boolValue) {
-        return user.isAdmin.boolValue;
-    }
-    else {
-        return user.isAdmin.boolValue;
-    }
+    return user.isAdmin.boolValue;
 }
-
-//* En ese método, regresar YES si el loggedInUser es admin, NO si no
 
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42F71DC617599B1300D180F4 /* NSString+FDDPAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F71DC517599B1300D180F4 /* NSString+FDDPAdditions.m */; };
 		990A777C172DF7D200DB1600 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 990A777B172DF7D200DB1600 /* UIKit.framework */; };
 		990A777E172DF7D200DB1600 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 990A777D172DF7D200DB1600 /* Foundation.framework */; };
 		990A7780172DF7D200DB1600 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 990A777F172DF7D200DB1600 /* CoreGraphics.framework */; };
@@ -33,6 +34,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		42F71DC417599B1300D180F4 /* NSString+FDDPAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FDDPAdditions.h"; sourceTree = "<group>"; };
+		42F71DC517599B1300D180F4 /* NSString+FDDPAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FDDPAdditions.m"; sourceTree = "<group>"; };
 		990A7778172DF7D200DB1600 /* FondaDeDonPanchito.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FondaDeDonPanchito.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		990A777B172DF7D200DB1600 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		990A777D172DF7D200DB1600 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -114,6 +117,15 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		42F71DC317599AD900D180F4 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				42F71DC417599B1300D180F4 /* NSString+FDDPAdditions.h */,
+				42F71DC517599B1300D180F4 /* NSString+FDDPAdditions.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
 		990A776F172DF7D200DB1600 = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +161,7 @@
 				9925F1521739DE7900070080 /* Model */,
 				990A778A172DF7D200DB1600 /* FDDPAppDelegate.h */,
 				990A778B172DF7D200DB1600 /* FDDPAppDelegate.m */,
+				42F71DC317599AD900D180F4 /* Categories */,
 				990A7782172DF7D200DB1600 /* Supporting Files */,
 			);
 			path = FondaDeDonPanchito;
@@ -267,6 +280,7 @@
 				99963710174C5750005FC93C /* FDDPUserInfoViewController.m in Sources */,
 				99963715174C57B5005FC93C /* FDDPRegistryViewController.m in Sources */,
 				9921C3C11756F3B900D0FC02 /* FDDPAdminViewController.m in Sources */,
+				42F71DC617599B1300D180F4 /* NSString+FDDPAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

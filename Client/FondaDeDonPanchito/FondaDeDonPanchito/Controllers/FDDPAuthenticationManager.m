@@ -8,6 +8,7 @@
 
 #import "FDDPAuthenticationManager.h"
 #import "FDDPUser.h"
+#import "NSString+FDDPAdditions.h"
 
 #define kServerURL @"http://localhost:4567"
 
@@ -72,17 +73,15 @@ static FDDPAuthenticationManager *_sharedAuthenticationManager = nil;
     NSMutableURLRequest *urlRequest;
     NSURL *url;
     NSString *urlString;
-    NSData *bodyData;
-    NSDictionary *bodyDictionary;
+    NSDictionary *urlParameters;
+    
+    urlParameters = @{ @"token": token };
     
     urlString = [kServerURL stringByAppendingPathComponent:@"logout"];
+    urlString = [urlString stringByAddingURLParameters:urlParameters];
     url = [NSURL URLWithString:urlString];
     urlRequest = [NSMutableURLRequest requestWithURL:url];
     [urlRequest setHTTPMethod:@"POST"];
-    
-    bodyDictionary = @{@"token": token};
-    bodyData = [NSJSONSerialization dataWithJSONObject:bodyDictionary options:0 error:nil];
-    [urlRequest setHTTPBody:bodyData];
     
     [NSURLConnection sendAsynchronousRequest:urlRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *urlResponse, NSData *data, NSError *error){
         NSDictionary *responseDictionary;

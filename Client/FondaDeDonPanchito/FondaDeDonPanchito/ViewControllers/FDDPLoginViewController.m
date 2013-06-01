@@ -26,7 +26,26 @@
     [super viewDidLoad];
     
     self.title = @"Login";
-    [self.usernameTextField becomeFirstResponder];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    
+    if (self.usernameTextField.text.length == 0) {
+        [self.usernameTextField becomeFirstResponder];
+    } else {
+        [self.passwordTextField becomeFirstResponder];
+    }
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
 
@@ -53,47 +72,58 @@
 #pragma mark - Private Methods
 - (void)login
 {
-    [self.view endEditing:YES];
     [[FDDPAuthenticationManager sharedManager] loginWithUsername:self.usernameTextField.text withPassword:self.passwordTextField.text andCompletion:^(NSString *message, NSError *error) {
         if (error) {
             [[[UIAlertView alloc] initWithTitle:@"There was an error!" message:[NSString stringWithFormat:@"%@", error.localizedDescription] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
             return;
         }
-        [self pushToRegistry];
+        [self.view endEditing:YES];
+        [self pushToMainNavigation];
         self.passwordTextField.text = @"";
     }];
 }
 
-- (void)pushToRegistry
+- (void)pushToMainNavigation
 {
     UITabBarController *tabBarController;
-    FDDPRegistryViewController *registryViewController;
-    FDDPUserInfoViewController *userInfoViewController;
-    FDDPAdminViewController *adminViewController;
-    
-    registryViewController = [[FDDPRegistryViewController alloc] initWithNibName:@"FDDPRegistryViewController" bundle:nil];
-    userInfoViewController = [[FDDPUserInfoViewController alloc] initWithNibName:@"FDDPUserInfoViewController" bundle:nil];
-    adminViewController = [[FDDPAdminViewController alloc] initWithNibName:@"FDDPAdminViewController" bundle:nil];
-    
     
     tabBarController = [[UITabBarController alloc] init];
     tabBarController.navigationItem.hidesBackButton = YES;
-    
-    if ([self shouldShowAdminScreen]) {
-        [tabBarController setViewControllers:@[registryViewController, userInfoViewController, adminViewController] animated:YES];
-    } else{
-    [tabBarController setViewControllers:@[registryViewController, userInfoViewController] animated:YES];
-    }
+    [tabBarController setViewControllers:[self tabBarViewControllers]];
     
     [self.navigationController pushViewController:tabBarController animated:YES];
 }
 
+- (NSArray *)tabBarViewControllers
+{
+    FDDPRegistryViewController *registryViewController;
+    FDDPAdminViewController *adminViewController;
+    FDDPUserInfoViewController *userInfoViewController;
+    UINavigationController *registryNavigationViewController;
+    UINavigationController *adminNavigationViewController;
+    UINavigationController *userInfoNavigationViewController;
+    NSArray *viewControllers;
+    
+    registryViewController = [[FDDPRegistryViewController alloc] initWithNibName:@"FDDPRegistryViewController" bundle:nil];
+    adminViewController = [[FDDPAdminViewController alloc] initWithNibName:@"FDDPAdminViewController" bundle:nil];
+    userInfoViewController = [[FDDPUserInfoViewController alloc] initWithNibName:@"FDDPUserInfoViewController" bundle:nil];
+    
+    registryNavigationViewController = [[UINavigationController alloc] initWithRootViewController:registryViewController];
+    adminNavigationViewController = [[UINavigationController alloc] initWithRootViewController:adminViewController];
+    userInfoNavigationViewController = [[UINavigationController alloc] initWithRootViewController:userInfoViewController];
+    
+    if ([self shouldShowAdminScreen]) {
+        viewControllers = @[ registryNavigationViewController, adminNavigationViewController, userInfoNavigationViewController ];
+    } else {
+        viewControllers = @[ registryNavigationViewController, userInfoNavigationViewController ];
+    }
+    
+    return viewControllers;
+}
+
 - (BOOL)shouldShowAdminScreen
 {
-    FDDPUser *user;
-    user = [[FDDPAuthenticationManager sharedManager] loggedInUser];
-    
-    return user.isAdmin.boolValue;
+    return [[FDDPAuthenticationManager sharedManager] loggedInUser].isAdmin.boolValue;
 }
 
 @end

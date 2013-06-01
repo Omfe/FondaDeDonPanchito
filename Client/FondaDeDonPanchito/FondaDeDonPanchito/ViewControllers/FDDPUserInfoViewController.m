@@ -67,7 +67,7 @@
                 return;
             }
         }];
-        [self.navigationController popViewControllerAnimated:YES];
+        [self.tabBarController.navigationController popViewControllerAnimated:YES];
     }
 }
 

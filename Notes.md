@@ -5,22 +5,17 @@
 
 ### Server
 
-* Implementar el método verifyLoggedIn del app.rb
-  * Revisar en la base de datos que ese token exista, si no, mandar un error de response
-* Utilizar el método de app.rb "verifyLoggedIn" al principio de todos los métodos en los otros archivos (menos en auth.rb)
+* 
 
 
 ### Client
 
 * RegistryViewController
-  * Declarar propiedades privadas:
-    * weak, IBOutlet, UITableView, ordersTableView
-    * strong, NSArray, ordersArray
-  * Conformarse a UITableViewDelegate y UITableViewDataSource en la interfaz privada
-  * Agregar un UITableView en el .xib
-  * Conectar el delegate y dataSource al File's Owner
-  * Implementar los métodos required del UITableViewDataSource
-  * Implementar didSelectRowAtIndexPath: del UITableViewDelegate
+  * Agregar los sigueintes métodos "Action":
+    * addNewOrder:, IBOutlet, recibe "sender" de tipo id
+  * Agregar los siguientes métodos privados:
+    * fetchAllOrders, void, no recibe nada
+  * Mandar llamar fetchAllOrders en viewDidLoad:
 * OrderViewController
 * OrderEditorViewController
 * MealEditorViewController

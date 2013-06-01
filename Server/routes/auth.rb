@@ -75,12 +75,9 @@ end
 
 # http://localhost:4567/logout
 post '/logout' do
-  unless request.body.read.empty?
-    request.body.rewind # because "read" method is IO thing and the unless condition is ending it
-    data = JSON.parse request.body.read
-  else
+  unless params.has_key?("token")
     status 400
-    res = { message: "Request without body." }
+    res = { message: "Missing token." }
     content_type :json
     return res.to_json
   end

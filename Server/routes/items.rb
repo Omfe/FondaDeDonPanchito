@@ -1,6 +1,12 @@
 # http://localhost:4567/items
 get '/items' do
-  verifyLoggedIn
+  message = verifyLoggedIn
+  if message
+    status 400
+    res = { message: message }
+    content_type :json
+    return res.to_json
+  end
   
   results_array = Array.new
   
@@ -17,7 +23,14 @@ end
 
 # http://localhost:4567/items/1
 get '/items/:id' do
-  verifyLoggedIn
+  message = verifyLoggedIn
+  if message
+    status 400
+    res = { message: message }
+    content_type :json
+    return res.to_json
+  end
+  
   results_array = Array.new
   
   query = "SELECT * FROM Item WHERE id=#{params[:id]}"
@@ -33,7 +46,14 @@ end
 
 # http://localhost:4567/items
 post '/items' do
-  verifyLoggedIn
+  message = verifyLoggedIn
+  if message
+    status 400
+    res = { message: message }
+    content_type :json
+    return res.to_json
+  end
+  
   unless request.body.read.empty?
     request.body.rewind # because "read" method is IO thing and the unless condition is ending it
     data = JSON.parse request.body.read
@@ -75,7 +95,14 @@ end
 
 # http://localhost:4567/items/1
 put '/items/:id' do
-  verifyLoggedIn
+  message = verifyLoggedIn
+  if message
+    status 400
+    res = { message: message }
+    content_type :json
+    return res.to_json
+  end
+  
   unless request.body.read.empty?
     request.body.rewind # because "read" method is IO thing and the unless condition is ending it
     data = JSON.parse request.body.read
@@ -112,7 +139,14 @@ end
 
 # http://localhost:4567/items/1
 delete '/items/:id' do
-  verifyLoggedIn
+  message = verifyLoggedIn
+  if message
+    status 400
+    res = { message: message }
+    content_type :json
+    return res.to_json
+  end
+  
   query = "DELETE FROM Item_has_Meal WHERE Item_id=#{params[:id]}"
   @@mysqlclient.query(query, as: :hash)
   

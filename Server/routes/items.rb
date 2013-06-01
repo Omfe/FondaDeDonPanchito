@@ -17,6 +17,7 @@ end
 
 # http://localhost:4567/items/1
 get '/items/:id' do
+  verifyLoggedIn
   results_array = Array.new
   
   query = "SELECT * FROM Item WHERE id=#{params[:id]}"
@@ -32,6 +33,7 @@ end
 
 # http://localhost:4567/items
 post '/items' do
+  verifyLoggedIn
   unless request.body.read.empty?
     request.body.rewind # because "read" method is IO thing and the unless condition is ending it
     data = JSON.parse request.body.read
@@ -73,6 +75,7 @@ end
 
 # http://localhost:4567/items/1
 put '/items/:id' do
+  verifyLoggedIn
   unless request.body.read.empty?
     request.body.rewind # because "read" method is IO thing and the unless condition is ending it
     data = JSON.parse request.body.read
@@ -109,6 +112,7 @@ end
 
 # http://localhost:4567/items/1
 delete '/items/:id' do
+  verifyLoggedIn
   query = "DELETE FROM Item_has_Meal WHERE Item_id=#{params[:id]}"
   @@mysqlclient.query(query, as: :hash)
   

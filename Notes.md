@@ -5,7 +5,7 @@
 
 ### Server
 
-* 
+* Orders CRUD
 
 
 ### Client
@@ -16,11 +16,12 @@
   * Agregar los siguientes métodos privados:
     * fetchAllOrders, void, no recibe nada
   * Mandar llamar fetchAllOrders en viewDidLoad:
-* OrderViewController
-* OrderEditorViewController
-* MealEditorViewController
-* ItemChooserViewController
-* ItemEditorViewController
+* AuthenicationManager
+  * Agregar método públic fetchAllOrders:, void, recibe un bloque
+    * El bloque recibe un NSArray (orders) y un NSError (error)
+  * Implementar el método y mandar llamar el servicio adecuado
+* RegistryViewController
+  * en fetchAllOrders, mandar a fetchAllOrders: del AuthenticationManager
 
 
 #### UI

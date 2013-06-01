@@ -73,12 +73,9 @@ static FDDPAuthenticationManager *_sharedAuthenticationManager = nil;
     NSMutableURLRequest *urlRequest;
     NSURL *url;
     NSString *urlString;
-    NSDictionary *urlParameters;
-    
-    urlParameters = @{ @"token": token };
     
     urlString = [kServerURL stringByAppendingPathComponent:@"logout"];
-    urlString = [urlString stringByAddingURLParameters:urlParameters];
+    urlString = [urlString stringByAddingURLParameters:@{ @"token": token }];
     url = [NSURL URLWithString:urlString];
     urlRequest = [NSMutableURLRequest requestWithURL:url];
     [urlRequest setHTTPMethod:@"POST"];

@@ -21,7 +21,7 @@
     urlString = [kServerURL stringByAppendingPathComponent:@"orders"];
     url = [NSURL URLWithString:urlString];
     urlRequest = [NSMutableURLRequest requestWithURL:url];
-    [urlRequest setHTTPMethod:@"POST"];
+    [urlRequest setHTTPMethod:@"GET"];
     
     [NSURLConnection sendAsynchronousRequest:urlRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *urlResponse, NSData *data, NSError *error){
         NSDictionary *responseDictionary;

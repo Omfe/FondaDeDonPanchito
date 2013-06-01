@@ -17,6 +17,7 @@
 		990A778E172DF7D200DB1600 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 990A778D172DF7D200DB1600 /* Default.png */; };
 		990A7790172DF7D200DB1600 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 990A778F172DF7D200DB1600 /* Default@2x.png */; };
 		990A7792172DF7D200DB1600 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 990A7791172DF7D200DB1600 /* Default-568h@2x.png */; };
+		9917D61D1759B67700B6FF1C /* FDDPWebServicesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9917D61C1759B67700B6FF1C /* FDDPWebServicesManager.m */; };
 		9921C3C11756F3B900D0FC02 /* FDDPAdminViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9921C3BF1756F3B900D0FC02 /* FDDPAdminViewController.m */; };
 		9921C3C21756F3B900D0FC02 /* FDDPAdminViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9921C3C01756F3B900D0FC02 /* FDDPAdminViewController.xib */; };
 		9921C3C61759A38600D0FC02 /* FDDPOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9921C3C41759A38600D0FC02 /* FDDPOrderViewController.m */; };
@@ -59,6 +60,8 @@
 		990A778D172DF7D200DB1600 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		990A778F172DF7D200DB1600 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		990A7791172DF7D200DB1600 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		9917D61B1759B67700B6FF1C /* FDDPWebServicesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDDPWebServicesManager.h; sourceTree = "<group>"; };
+		9917D61C1759B67700B6FF1C /* FDDPWebServicesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDDPWebServicesManager.m; sourceTree = "<group>"; };
 		9921C3BE1756F3B900D0FC02 /* FDDPAdminViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDDPAdminViewController.h; sourceTree = "<group>"; };
 		9921C3BF1756F3B900D0FC02 /* FDDPAdminViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDDPAdminViewController.m; sourceTree = "<group>"; };
 		9921C3C01756F3B900D0FC02 /* FDDPAdminViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FDDPAdminViewController.xib; sourceTree = "<group>"; };
@@ -119,6 +122,8 @@
 			children = (
 				99A4CF0517473C41000FED65 /* FDDPAuthenticationManager.h */,
 				99A4CF0617473C41000FED65 /* FDDPAuthenticationManager.m */,
+				9917D61B1759B67700B6FF1C /* FDDPWebServicesManager.h */,
+				9917D61C1759B67700B6FF1C /* FDDPWebServicesManager.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -331,6 +336,7 @@
 				9921C3D01759A3C000D0FC02 /* FDDPMealEditorViewController.m in Sources */,
 				9921C3D51759A3E100D0FC02 /* FDDPItemChooserViewController.m in Sources */,
 				9921C3DA1759A42600D0FC02 /* FDDPItemEditorViewController.m in Sources */,
+				9917D61D1759B67700B6FF1C /* FDDPWebServicesManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

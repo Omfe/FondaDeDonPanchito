@@ -82,7 +82,7 @@ post '/logout' do
     return res.to_json
   end
   
-  query = "SELECT * FROM User WHERE token='#{data["token"]}'"
+  query = "SELECT * FROM User WHERE token='#{params["token"]}'"
   result = @@mysqlclient.query(query, as: :hash)
   results_array = Array.new
   result.each do |row|

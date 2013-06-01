@@ -7,6 +7,7 @@
 //
 
 #import "FDDPRegistryViewController.h"
+#import "FDDPWebServicesManager.h"
 
 @interface FDDPRegistryViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -62,9 +63,10 @@
 #pragma mark - Private Method
 - (void)fetchAllOrders
 {
+    FDDPWebServicesManager *webServicesManager;
     
+    [webServicesManager fetchAllOrders:^(NSArray *orders, NSError *error) {
+        
+    }];
 }
 @end
-//* Agregar los siguientes métodos privados:
-//* fetchAllOrders, void, no recibe nada
-//* Mandar llamar fetchAllOrders en viewDidLoad:

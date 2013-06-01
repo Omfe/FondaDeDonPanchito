@@ -2,7 +2,7 @@
 //  NSString+FDDPAdditions.h
 //  FondaDeDonPanchito
 //
-//  Created by Rogelio Gudino on 5/31/13.
+//  Created by Omar Gudino on 5/31/13.
 //  Copyright (c) 2013 Omar Gudino. All rights reserved.
 //
 

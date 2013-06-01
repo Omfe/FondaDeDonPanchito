@@ -8,7 +8,10 @@
 
 #import "FDDPRegistryViewController.h"
 
-@interface FDDPRegistryViewController ()
+@interface FDDPRegistryViewController ()<UITableViewDelegate, UITableViewDataSource>
+
+@property (weak,nonatomic) IBOutlet UITableView *ordersTableView;
+@property (strong, nonatomic) NSArray *ordersArray;
 
 @end
 
@@ -26,6 +29,25 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+}
+
+#pragma mark - UITableViewDelegate Methods
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
+
+#pragma mark - UITableViewDataSource Methods
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    
 }
 
 @end

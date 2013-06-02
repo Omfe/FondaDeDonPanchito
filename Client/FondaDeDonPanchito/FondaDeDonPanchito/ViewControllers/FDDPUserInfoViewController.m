@@ -61,7 +61,7 @@
     
     if (buttonIndex == 0){
         [self.view endEditing:YES];
-        [[FDDPAuthenticationManager sharedManager] logoutWithToken:user.token andCompletion:^(NSString *message, NSError *error) {
+        [[FDDPAuthenticationManager sharedManager] logoutWithCompletion:^(NSString *message, NSError *error) {
             if (error) {
                 [[[UIAlertView alloc] initWithTitle:@"There was an error!" message:[NSString stringWithFormat:@"%@", error.localizedDescription] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
                 return;

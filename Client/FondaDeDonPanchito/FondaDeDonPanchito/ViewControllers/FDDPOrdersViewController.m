@@ -8,6 +8,8 @@
 
 #import "FDDPOrdersViewController.h"
 #import "FDDPWebServicesManager.h"
+#import "FDDPOrderEditorViewController.h"
+#import "FDDPOrder.h"
 
 @interface FDDPOrdersViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -43,21 +45,37 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return nil;
+    UITableViewCell *cell;
+    static NSString *identifier = @"OrdersTableViewCellIdentifier";
+    FDDPOrder *order;
+    
+    cell = [self.ordersTableView dequeueReusableCellWithIdentifier:identifier];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    }
+    
+    order = [[FDDPOrder alloc] init];
+    order = [self.ordersArray objectAtIndex:indexPath.row];
+    cell.textLabel.text = order.orderName;
+    
+    return cell;
 }
 
 
 #pragma mark - UITableViewDelegate Methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 
 #pragma mark - Action Methods
 - (IBAction)addNewOrder:(id)sender
 {
+    FDDPOrderEditorViewController *orderEditorViewController;
     
+    orderEditorViewController = [[FDDPOrderEditorViewController alloc] initWithNibName:@"FDDPOrderEditorViewController" bundle:nil];
+    [self.navigationController pushViewController:orderEditorViewController animated:YES];
 }
 
 
@@ -66,7 +84,10 @@
 {
     FDDPWebServicesManager *webServicesManager;
     
+    webServicesManager = [[FDDPWebServicesManager alloc] init];
     [webServicesManager fetchAllOrders:^(NSArray *orders, NSError *error) {
+        self.ordersArray = orders;
+        [self.ordersTableView reloadData];
         
     }];
 }

@@ -36,7 +36,6 @@ static FDDPAuthenticationManager *_sharedAuthenticationManager = nil;
     NSData *bodyData;
     NSDictionary *bodyDictionary;
     
-    
     urlString = [kServerURL stringByAppendingPathComponent:@"login"];
     url = [NSURL URLWithString:urlString];
     urlRequest = [NSMutableURLRequest requestWithURL:url];

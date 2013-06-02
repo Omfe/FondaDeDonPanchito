@@ -16,4 +16,6 @@
 @property (strong, nonatomic) NSDate *orderedAt;
 @property (strong, nonatomic) NSNumber *clientId;
 
+- (void)updateFromDictionary:(NSDictionary *)dictionary;
+
 @end

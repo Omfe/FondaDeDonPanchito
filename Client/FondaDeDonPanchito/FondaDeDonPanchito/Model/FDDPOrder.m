@@ -10,4 +10,13 @@
 
 @implementation FDDPOrder
 
+- (void)updateFromDictionary:(NSDictionary *)dictionary
+{
+    self.orderId = dictionary[@"orderId"];
+    self.orderName = dictionary[@"orderName"];
+    self.orderNotes = dictionary[@"orderNotes"];
+    self.orderedAt = dictionary[@"orderedAt"];
+    self.clientId = dictionary[@"clientId"];
+}
+
 @end

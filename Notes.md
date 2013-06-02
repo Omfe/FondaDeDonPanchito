@@ -5,7 +5,7 @@
 
 ### Server
 
-* En el get /orders se está regresando todas las ordenes con la llave "items:", cambiar a "orders:".
+* 
 
 
 ### Client

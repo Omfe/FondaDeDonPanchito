@@ -30,6 +30,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setupUI];
     [self fetchAllOrders];
 }
 
@@ -42,7 +43,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    return nil;
 }
 
 
@@ -69,4 +70,10 @@
         
     }];
 }
+
+- (void)setupUI
+{
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewOrder:)];
+}
+
 @end

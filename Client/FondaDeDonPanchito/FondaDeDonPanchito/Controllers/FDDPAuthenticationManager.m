@@ -67,14 +67,14 @@ static FDDPAuthenticationManager *_sharedAuthenticationManager = nil;
     }];
 }
 
-- (void)logoutWithToken:(NSString *)token andCompletion:(FDDPAuthenticationLogoutCompletionBlock)completion
+- (void)logoutWithCompletion:(FDDPAuthenticationLogoutCompletionBlock)completion
 {
     NSMutableURLRequest *urlRequest;
     NSURL *url;
     NSString *urlString;
-    
+    //[[FDDPAuthenticationManager sharedManager] loggedInUser].token
     urlString = [kServerURL stringByAppendingPathComponent:@"logout"];
-    urlString = [urlString stringByAddingURLParameters:@{ @"token": token }];
+    urlString = [urlString stringByAddingURLParameters:@{ @"token": self.loggedInUser.token }];
     url = [NSURL URLWithString:urlString];
     urlRequest = [NSMutableURLRequest requestWithURL:url];
     [urlRequest setHTTPMethod:@"POST"];

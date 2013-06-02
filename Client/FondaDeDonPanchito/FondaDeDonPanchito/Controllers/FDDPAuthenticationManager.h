@@ -18,6 +18,6 @@ typedef void (^FDDPAuthenticationLogoutCompletionBlock)(NSString *message, NSErr
 + (FDDPAuthenticationManager *)sharedManager;
 
 - (void)loginWithUsername:(NSString *)username withPassword:(NSString *)password andCompletion:(FDDPAuthenticationLoginCompletionBlock)completion;
-- (void)logoutWithToken:(NSString *)token andCompletion:(FDDPAuthenticationLogoutCompletionBlock)completion;
+- (void)logoutWithCompletion:(FDDPAuthenticationLogoutCompletionBlock)completion;
 
 @end

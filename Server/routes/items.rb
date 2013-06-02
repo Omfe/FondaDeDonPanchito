@@ -10,7 +10,7 @@ get '/items' do
   
   results_array = Array.new
   
-  query = "SELECT * FROM Item"
+  query = "SELECT * FROM fddp_Item"
   result = @@mysqlclient.query(query, as: :hash)
   result.each do |row|
     results_array.push(row)
@@ -33,7 +33,7 @@ get '/items/:id' do
   
   results_array = Array.new
   
-  query = "SELECT * FROM Item WHERE id=#{params[:id]}"
+  query = "SELECT * FROM fddp_Item WHERE id=#{params[:id]}"
   result = @@mysqlclient.query(query, as: :hash)
   result.each do |row|
     results_array.push(row)
@@ -85,7 +85,7 @@ post '/items' do
     return res.to_json
   end
   
-  query = "INSERT INTO Item (itemName, itemPrice, isActive) VALUES('#{data["itemName"]}', #{data["itemPrice"]}, #{data["isActive"]})"
+  query = "INSERT INTO fddp_Item (itemName, itemPrice, isActive) VALUES('#{data["itemName"]}', #{data["itemPrice"]}, #{data["isActive"]})"
   @@mysqlclient.query(query, as: :hash)
   
   res = { message: "Created item successfully." }
@@ -128,7 +128,7 @@ put '/items/:id' do
   end
   
   if fields.count > 0
-    query = "UPDATE Item SET #{fields.join(", ")} WHERE id=#{params[:id]}"
+    query = "UPDATE fddp_Item SET #{fields.join(", ")} WHERE id=#{params[:id]}"
     @@mysqlclient.query(query, as: :hash)
   end
   
@@ -147,10 +147,10 @@ delete '/items/:id' do
     return res.to_json
   end
   
-  query = "DELETE FROM Item_has_Meal WHERE Item_id=#{params[:id]}"
+  query = "DELETE FROM fddp_Item_has_fddp_Meal WHERE Item_id=#{params[:id]}"
   @@mysqlclient.query(query, as: :hash)
   
-  query = "DELETE FROM Item WHERE id=#{params[:id]}"
+  query = "DELETE FROM fddp_Item WHERE id=#{params[:id]}"
   @@mysqlclient.query(query, as: :hash)
   
   res = { message: "Deleted item successfully." }

@@ -10,7 +10,7 @@ def verifyLoggedIn
     return "Missing token."
   end
   
-  query = "SELECT * FROM User WHERE token='#{params["token"]}'"
+  query = "SELECT * FROM fddp_User WHERE token='#{params["token"]}'"
   result = @@mysqlclient.query(query, as: hash)
   results_array = Array.new
   result.each do |row|

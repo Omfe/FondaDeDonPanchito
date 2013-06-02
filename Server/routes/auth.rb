@@ -24,7 +24,7 @@ post '/login' do
     return res.to_json
   end
   
-  query = "SELECT * FROM User WHERE username='#{data["username"]}'"
+  query = "SELECT * FROM fddp_User WHERE username='#{data["username"]}'"
   result = @@mysqlclient.query(query, as: :hash)
   results_array = Array.new
   result.each do |row|
@@ -49,18 +49,18 @@ post '/login' do
   users_with_token = nil
   while users_with_token == nil
    token = SecureRandom.hex
-   query = "SELECT * FROM User WHERE token='#{token}'"
+   query = "SELECT * FROM fddp_User WHERE token='#{token}'"
    users_with_token = @@mysqlclient.query(query, as: :hash)
    
    if users_with_token.count == 0
-     query =  "UPDATE User SET token='#{token}' WHERE id=#{user_hash["id"]}"
+     query =  "UPDATE fddp_User SET token='#{token}' WHERE id=#{user_hash["id"]}"
      @@mysqlclient.query(query, as: :hash)
    else
      users_with_token = nil
    end
   end
   
-  query = "SELECT id, firstName, username, isAdmin, lastName, token FROM User WHERE id='#{user_hash["id"]}'"
+  query = "SELECT id, firstName, username, isAdmin, lastName, token FROM fddp_User WHERE id='#{user_hash["id"]}'"
   result = @@mysqlclient.query(query, as: :hash)
   results_array = Array.new
   result.each do |row|
@@ -82,7 +82,7 @@ post '/logout' do
     return res.to_json
   end
   
-  query = "SELECT * FROM User WHERE token='#{params["token"]}'"
+  query = "SELECT * FROM fddp_User WHERE token='#{params["token"]}'"
   result = @@mysqlclient.query(query, as: :hash)
   results_array = Array.new
   result.each do |row|
@@ -97,7 +97,7 @@ post '/logout' do
   end
   
   user_hash = results_array[0]
-  query =  "UPDATE User SET token=NULL WHERE id=#{user_hash["id"]}"
+  query =  "UPDATE fddp_User SET token=NULL WHERE id=#{user_hash["id"]}"
   @@mysqlclient.query(query, as: :hash)
   
   res = { message: "Successfully logged out." }

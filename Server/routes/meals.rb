@@ -11,7 +11,7 @@ get '/meals/:id' do
   
   results_array = Array.new
   
-  query = "SELECT * FROM Meal WHERE id=#{params[:id]}"
+  query = "SELECT * FROM fddp_Meal WHERE id=#{params[:id]}"
   result = @@mysqlclient.query(query, as: :hash)
   result.each do |row|
     results_array.push(row)
@@ -64,13 +64,13 @@ post '/meals' do
     return res.to_json
   end
   
-  query = "INSERT INTO Meal (mealName, mealPrice, isActive) VALUES('#{data["mealName"]}', #{data["mealPrice"]}, #{data["isActive"]})"
+  query = "INSERT INTO fddp_Meal (mealName, mealPrice, isActive) VALUES('#{data["mealName"]}', #{data["mealPrice"]}, #{data["isActive"]})"
   @@mysqlclient.query(query, as: :hash)
   mealId = @@mysqlclient.last_id
   
   if data.has_key?("itemIds")
     data["itemIds"].each do |itemId|
-      query = "INSERT INTO Item_has_Meal (Item_id, Meal_id) VALUES(#{itemId}, #{mealId})"
+      query = "INSERT INTO fddp_Item_has_fddp_Meal (Item_id, Meal_id) VALUES(#{itemId}, #{mealId})"
       @@mysqlclient.query(query, as: :hash)
     end    
   end
@@ -116,7 +116,7 @@ put '/meals/:id' do
   end
   
   if fields.count > 0
-    query = "UPDATE Meal SET #{fields.join(", ")} WHERE id=#{params[:id]}"
+    query = "UPDATE fddp_Meal SET #{fields.join(", ")} WHERE id=#{params[:id]}"
     @@mysqlclient.query(query, as: :hash)
   end
   
@@ -136,10 +136,10 @@ delete '/meals/:id' do
   end
   
   
-  query = "DELETE FROM Item_has_Meal WHERE Meal_id=#{params[:id]}"
+  query = "DELETE FROM fddp_Item_has_fddp_Meal WHERE Meal_id=#{params[:id]}"
   @@mysqlclient.query(query, as: :hash)
   
-  query = "DELETE FROM Meal WHERE id=#{params[:id]}"
+  query = "DELETE FROM fddp_Meal WHERE id=#{params[:id]}"
   @@mysqlclient.query(query, as: :hash)
   
   res = { message: "Deleted meal successfully." }

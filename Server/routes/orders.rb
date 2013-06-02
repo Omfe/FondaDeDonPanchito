@@ -10,7 +10,7 @@ get '/orders' do
   
   results_array = Array.new
   
-  query = "SELECT * FROM Order"
+  query = "SELECT * FROM fddp_Order"
   result = @@mysqlclient.query(query, as: :hash)
   result.each do |row|
     results_array.push(row)
@@ -34,7 +34,7 @@ get '/orders/:id' do
   
   results_array = Array.new
   
-  query = "SELECT * FROM Order WHERE id=#{params[:id]}"
+  query = "SELECT * FROM fddp_Order WHERE id=#{params[:id]}"
   result = @@mysqlclient.query(query, as: :hash)
   result.each do |row|
     results_array.push(row)
@@ -75,32 +75,33 @@ post '/orders' do
   
   unless data.has_key?("orderNotes")
     status 400
-    res = { message: "Missing orderPrice parameter." }
+    res = { message: "Missing orderNotes parameter." }
     content_type :json
     return res.to_json
   end
   
   unless data.has_key?("orderedAt")
     status 400
-    res = { message: "Missing isActive parameter." }
+    res = { message: "Missing orderedAt parameter." }
     content_type :json
     return res.to_json
   end
   
-  query = "INSERT INTO Order (orderName, orderNotes, orderedAt) VALUES('#{data["orderName"]}', #{data["orderNotes"]}, #{data["orderedAt"]})"
+  query = "INSERT INTO fddp_Order (orderName, orderNotes, orderedAt) VALUES('#{data["orderName"]}', '#{data["orderNotes"]}', '#{data["orderedAt"]}')"
+  puts query
   @@mysqlclient.query(query, as: :hash)
   orderId = @@mysqlclient.last_id
   
   if data.has_key?("mealIds")
     data["mealIds"].each do |mealId|
-      query = "INSERT INTO Meal_has_Order (Meal_id, Order_id) VALUES(#{mealId}, #{orderId})"
+      query = "INSERT INTO fddp_Meal_has_fddp_Order (Meal_id, Order_id) VALUES(#{mealId}, #{orderId})"
       @@mysqlclient.query(query, as: :hash)
     end    
   end
   
   if data.has_key?("itemIds")
     data["itemIds"].each do |itemId|
-      query = "INSERT INTO Item_has_Order (Item_id, Order_id) VALUES(#{itemId}, #{orderId})"
+      query = "INSERT INTO fddp_Item_has_fddp_Order (Item_id, Order_id) VALUES(#{itemId}, #{orderId})"
       @@mysqlclient.query(query, as: :hash)
     end    
   end
@@ -146,7 +147,7 @@ put '/orders/:id' do
   end
   
   if fields.count > 0
-    query = "UPDATE Order SET #{fields.join(", ")} WHERE id=#{params[:id]}"
+    query = "UPDATE fddp_Order SET #{fields.join(", ")} WHERE id=#{params[:id]}"
     @@mysqlclient.query(query, as: :hash)
   end
   
@@ -166,10 +167,10 @@ delete '/orders/:id' do
   end
   
   
-  query = "DELETE FROM Meal_has_Order WHERE Order_id=#{params[:id]}"
+  query = "DELETE FROM fddp_Meal_has_fddp_Order WHERE Order_id=#{params[:id]}"
   @@mysqlclient.query(query, as: :hash)
   
-  query = "DELETE FROM Order WHERE id=#{params[:id]}"
+  query = "DELETE FROM fddp_Order WHERE id=#{params[:id]}"
   @@mysqlclient.query(query, as: :hash)
   
   res = { message: "Deleted order successfully." }

@@ -9,5 +9,7 @@
 @interface NSString (FDDPAdditions)
 
 - (NSString *)stringByAddingURLParameters:(NSDictionary *)urlParameters;
++ (NSString *)serverStringFromDate:(NSDate *)date;
+- (NSDate *)dateFromServerString;
 
 @end

@@ -10,6 +10,7 @@
 
 @implementation NSString (FDDPAdditions)
 
+#pragma mark - Public Methods
 - (NSString *)stringByAddingURLParameters:(NSDictionary *)urlParameters
 {
     NSString *parametersString;
@@ -25,6 +26,30 @@
     
     parametersString = [parametersArray componentsJoinedByString:@"&"];
     return [self stringByAppendingFormat:@"?%@", parametersString];
+}
+
++ (NSString *)serverStringFromDate:(NSDate *)date
+{
+    return [[[self class] serverDateFormatter] stringFromDate:date];
+}
+
+- (NSDate *)dateFromServerString
+{
+    return [[[self class] serverDateFormatter] dateFromString:self];
+}
+
+
+#pragma mark - Private Methods
++ (NSDateFormatter *)serverDateFormatter
+{
+    static NSDateFormatter *dateFormatter = nil;
+    
+    if ( !dateFormatter ) {
+        dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"YYYY-MM-DD HH:mm:SS"];
+    }
+    
+    return dateFormatter;
 }
 
 @end

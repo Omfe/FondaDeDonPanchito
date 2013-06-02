@@ -6,23 +6,23 @@
 //  Copyright (c) 2013 Omar Gudino. All rights reserved.
 //
 
-#import "FDDPRegistryViewController.h"
+#import "FDDPOrdersViewController.h"
 #import "FDDPWebServicesManager.h"
 
-@interface FDDPRegistryViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface FDDPOrdersViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *ordersTableView;
 @property (strong, nonatomic) NSArray *ordersArray;
 
 @end
 
-@implementation FDDPRegistryViewController
+@implementation FDDPOrdersViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = @"Registry";
+        self.title = @"Orders";
     }
     return self;
 }

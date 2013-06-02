@@ -8,7 +8,7 @@
 
 #import "FDDPLoginViewController.h"
 #import "FDDPAuthenticationManager.h"
-#import "FDDPRegistryViewController.h"
+#import "FDDPOrdersViewController.h"
 #import "FDDPUserInfoViewController.h"
 #import "FDDPAdminViewController.h"
 
@@ -95,26 +95,26 @@
 
 - (NSArray *)tabBarViewControllers
 {
-    FDDPRegistryViewController *registryViewController;
+    FDDPOrdersViewController *ordersViewController;
     FDDPAdminViewController *adminViewController;
     FDDPUserInfoViewController *userInfoViewController;
-    UINavigationController *registryNavigationViewController;
+    UINavigationController *ordersNavigationViewController;
     UINavigationController *adminNavigationViewController;
     UINavigationController *userInfoNavigationViewController;
     NSArray *viewControllers;
     
-    registryViewController = [[FDDPRegistryViewController alloc] initWithNibName:@"FDDPRegistryViewController" bundle:nil];
+    ordersViewController = [[FDDPOrdersViewController alloc] initWithNibName:@"FDDPOrdersViewController" bundle:nil];
     adminViewController = [[FDDPAdminViewController alloc] initWithNibName:@"FDDPAdminViewController" bundle:nil];
     userInfoViewController = [[FDDPUserInfoViewController alloc] initWithNibName:@"FDDPUserInfoViewController" bundle:nil];
     
-    registryNavigationViewController = [[UINavigationController alloc] initWithRootViewController:registryViewController];
+    ordersNavigationViewController = [[UINavigationController alloc] initWithRootViewController:ordersViewController];
     adminNavigationViewController = [[UINavigationController alloc] initWithRootViewController:adminViewController];
     userInfoNavigationViewController = [[UINavigationController alloc] initWithRootViewController:userInfoViewController];
     
     if ([self shouldShowAdminScreen]) {
-        viewControllers = @[ registryNavigationViewController, adminNavigationViewController, userInfoNavigationViewController ];
+        viewControllers = @[ ordersNavigationViewController, adminNavigationViewController, userInfoNavigationViewController ];
     } else {
-        viewControllers = @[ registryNavigationViewController, userInfoNavigationViewController ];
+        viewControllers = @[ ordersNavigationViewController, userInfoNavigationViewController ];
     }
     
     return viewControllers;

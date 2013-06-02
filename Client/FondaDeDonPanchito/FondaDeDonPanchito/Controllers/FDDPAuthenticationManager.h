@@ -8,6 +8,8 @@
 
 #import "FDDPUser.h"
 
+extern NSString *FDDPServerError;
+
 typedef void(^FDDPAuthenticationLoginCompletionBlock)(NSString *message, NSError *error);
 typedef void (^FDDPAuthenticationLogoutCompletionBlock)(NSString *message, NSError *error);
 

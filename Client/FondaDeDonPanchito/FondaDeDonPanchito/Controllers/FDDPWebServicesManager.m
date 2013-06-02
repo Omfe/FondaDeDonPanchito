@@ -40,6 +40,15 @@
         }
         
         responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        
+        if ([(NSHTTPURLResponse *)urlResponse statusCode] == 400) {
+            if (completion) {
+                error = [[NSError alloc] initWithDomain:FDDPServerError code:400 userInfo:@{ NSLocalizedDescriptionKey: responseDictionary[@"message"] }];
+                completion(nil, error);
+            }
+            return;
+        }
+        
         orders = [[NSMutableArray alloc] init];
         for (NSDictionary *dictionary in responseDictionary[@"orders"]) {
             order = [[FDDPOrder alloc] init];

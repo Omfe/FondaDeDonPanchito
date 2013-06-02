@@ -7,6 +7,7 @@
 //
 
 #import "FDDPOrder.h"
+#import "NSString+FDDPAdditions.h"
 
 @implementation FDDPOrder
 
@@ -15,7 +16,7 @@
     self.orderId = dictionary[@"orderId"];
     self.orderName = dictionary[@"orderName"];
     self.orderNotes = dictionary[@"orderNotes"];
-    self.orderedAt = dictionary[@"orderedAt"];
+    self.orderedAt = [dictionary[@"orderedAt"] dateFromServerString];
     self.clientId = dictionary[@"clientId"];
 }
 

@@ -12,6 +12,8 @@
 
 #define kServerURL @"http://localhost:4567"
 
+NSString *FDDPServerError = @"FDDPServerError";
+
 @interface FDDPAuthenticationManager ()
 
 @end
@@ -56,6 +58,15 @@ static FDDPAuthenticationManager *_sharedAuthenticationManager = nil;
         }
         
         responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        
+        if ([(NSHTTPURLResponse *)urlResponse statusCode] == 400) {
+            if (completion) {
+                error = [[NSError alloc] initWithDomain:FDDPServerError code:400 userInfo:@{ NSLocalizedDescriptionKey: responseDictionary[@"message"] }];
+                completion(responseDictionary[@"message"], error);
+            }
+            return;
+        }
+        
         if (!self.loggedInUser) {
             self.loggedInUser = [[FDDPUser alloc] init];
         }
@@ -90,8 +101,16 @@ static FDDPAuthenticationManager *_sharedAuthenticationManager = nil;
         }
         
         responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-        self.loggedInUser = nil;
         
+        if ([(NSHTTPURLResponse *)urlResponse statusCode] == 400) {
+            if (completion) {
+                error = [[NSError alloc] initWithDomain:FDDPServerError code:400 userInfo:@{ NSLocalizedDescriptionKey: responseDictionary[@"message"] }];
+                completion(responseDictionary[@"message"], error);
+            }
+            return;
+        }
+        
+        self.loggedInUser = nil;
         if (completion) {
             completion(responseDictionary[@"message"], nil);
         }

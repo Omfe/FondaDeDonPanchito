@@ -27,3 +27,5 @@ load "routes/index.rb"
 load "routes/items.rb"
 load "routes/meals.rb"
 load "routes/orders.rb"
+
+load "routes/sandbox.rb"

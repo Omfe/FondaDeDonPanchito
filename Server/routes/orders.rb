@@ -1,3 +1,26 @@
+# http://localhost:4567/orders
+get '/orders' do
+  message = verifyLoggedIn
+  if message
+    status 400
+    res = { message: message }
+    content_type :json
+    return res.to_json
+  end
+  
+  results_array = Array.new
+  
+  query = "SELECT * FROM Order"
+  result = @@mysqlclient.query(query, as: :hash)
+  result.each do |row|
+    results_array.push(row)
+  end
+  
+  res = { message: "Retrieved orders successfully.", items: results_array }
+  content_type :json
+  res.to_json
+end
+
 # http://localhost:4567/orders/1
 get '/orders/:id' do
   message = verifyLoggedIn

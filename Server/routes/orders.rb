@@ -16,7 +16,7 @@ get '/orders' do
     results_array.push(row)
   end
   
-  res = { message: "Retrieved orders successfully.", items: results_array }
+  res = { message: "Retrieved orders successfully.", orders: results_array }
   content_type :json
   res.to_json
 end
@@ -87,13 +87,20 @@ post '/orders' do
     return res.to_json
   end
   
-  query = "INSERT INTO Order (orderName, orderNotes, orderedAt) VALUES('#{data["orderName"]}', #{data["orderPrice"]}, #{data["isActive"]})"
+  query = "INSERT INTO Order (orderName, orderNotes, orderedAt) VALUES('#{data["orderName"]}', #{data["orderNotes"]}, #{data["orderedAt"]})"
   @@mysqlclient.query(query, as: :hash)
   orderId = @@mysqlclient.last_id
   
   if data.has_key?("mealIds")
-    data["mealIds"].each do |itemId|
+    data["mealIds"].each do |mealId|
       query = "INSERT INTO Meal_has_Order (Meal_id, Order_id) VALUES(#{mealId}, #{orderId})"
+      @@mysqlclient.query(query, as: :hash)
+    end    
+  end
+  
+  if data.has_key?("itemIds")
+    data["itemIds"].each do |itemId|
+      query = "INSERT INTO Item_has_Order (Item_id, Order_id) VALUES(#{itemId}, #{orderId})"
       @@mysqlclient.query(query, as: :hash)
     end    
   end

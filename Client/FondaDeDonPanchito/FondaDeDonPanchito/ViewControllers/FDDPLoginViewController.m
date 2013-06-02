@@ -88,7 +88,6 @@
     UITabBarController *tabBarController;
     
     tabBarController = [[UITabBarController alloc] init];
-    tabBarController.navigationItem.hidesBackButton = YES;
     [tabBarController setViewControllers:[self tabBarViewControllers]];
     
     [self.navigationController pushViewController:tabBarController animated:YES];

@@ -66,6 +66,10 @@
 #pragma mark - UITableViewDelegate Methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    FDDPOrder *order;
+    
+    order = [self.ordersArray objectAtIndex:indexPath.row];
+    [self presentOrderEditorViewControllerWithOrder:order];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
@@ -73,10 +77,8 @@
 #pragma mark - Action Methods
 - (IBAction)addNewOrder:(id)sender
 {
-    FDDPOrderEditorViewController *orderEditorViewController;
+    [self presentOrderEditorViewControllerWithOrder:nil];
     
-    orderEditorViewController = [[FDDPOrderEditorViewController alloc] initWithNibName:@"FDDPOrderEditorViewController" bundle:nil];
-    [self.navigationController pushViewController:orderEditorViewController animated:YES];
 }
 
 
@@ -89,13 +91,26 @@
     [webServicesManager fetchAllOrders:^(NSArray *orders, NSError *error) {
         self.ordersArray = orders;
         [self.ordersTableView reloadData];
-        
     }];
 }
 
 - (void)setupUI
 {
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewOrder:)];
+}
+
+- (void)presentOrderEditorViewControllerWithOrder:(FDDPOrder *)order
+{
+    FDDPOrderEditorViewController *orderEditorViewController;
+    
+    orderEditorViewController = [[FDDPOrderEditorViewController alloc] initWithNibName:@"FDDPOrderEditorViewController" bundle:nil];
+    orderEditorViewController.order = order;
+    [orderEditorViewController setCompletionBlock:^{
+        [self fetchAllOrders];
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
+    [self.navigationController pushViewController:orderEditorViewController animated:YES];
+
 }
 
 @end

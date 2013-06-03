@@ -9,7 +9,7 @@
 #import "FDDPOrderEditorViewController.h"
 #import "FDDPOrder.h"
 
-@interface FDDPOrderEditorViewController ()
+@interface FDDPOrderEditorViewController () <UIActionSheetDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *orderNameTextField;
 @property (weak, nonatomic) IBOutlet UITextView *orderNotesTextView;
@@ -36,6 +36,20 @@
 }
 
 
+#pragma mark - UIActionSheetDelegate Methods
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (0) { // Change to if buttonIndex is the cancel one
+        return;
+    }
+    
+    if (self.order) {
+        // Call delete WebService
+    }
+    [self callCompletionBlock];
+}
+
+
 #pragma mark - Action Methods
 - (IBAction)doneWasPressed:(id)sender
 {
@@ -54,10 +68,7 @@
 
 - (IBAction)deleteWasPressed:(id)sender
 {
-    if (self.order) {
-        // Call delete WebService
-    }
-    [self callCompletionBlock];
+    // Present Action sheet
 }
 
 

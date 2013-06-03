@@ -7,12 +7,13 @@
 //
 
 #import "FDDPOrderEditorViewController.h"
+#import "FDDPOrder.h"
 
 @interface FDDPOrderEditorViewController ()
 
-@property (weak, nonatomic) IBOutlet UITextField *orderName;
-@property (weak, nonatomic) IBOutlet UITextView *orderNotes;
-@property (weak, nonatomic) IBOutlet UIDatePicker *orderedAt;
+@property (weak, nonatomic) IBOutlet UITextField *orderNameTextField;
+@property (weak, nonatomic) IBOutlet UITextView *orderNotesTextView;
+@property (weak, nonatomic) IBOutlet UIDatePicker *orderedAtDatePicker;
 
 @end
 
@@ -22,7 +23,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        self.title = @"Order Editor";
     }
     return self;
 }
@@ -30,6 +31,54 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self setupUI];
+}
+
+
+#pragma mark - Action Methods
+- (IBAction)doneWasPressed:(id)sender
+{
+    if (self.order) {
+        // Call update WebService
+    } else {
+        // Call create WebService
+    }
+    [self callCompletionBlock];
+}
+
+- (IBAction)cancelWasPressed:(id)sender
+{
+    [self callCompletionBlock];
+}
+
+- (IBAction)deleteWasPressed:(id)sender
+{
+    if (self.order) {
+        // Call delete WebService
+    }
+    [self callCompletionBlock];
+}
+
+
+#pragma mark - Private Methods
+- (void)setupUI
+{
+    if (self.order) {
+        self.orderNameTextField.text = self.order.orderName;
+        self.orderNotesTextView.text = self.order.orderNotes;
+        self.orderedAtDatePicker.date = self.order.orderedAt;
+    }
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneWasPressed:)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelWasPressed:)];
+}
+
+- (void)callCompletionBlock
+{
+    if (self.completionBlock) {
+        self.completionBlock();
+    }
 }
 
 @end

@@ -10,9 +10,9 @@
 
 @interface FDDPOrderEditorViewController ()
 
-@property(weak, nonatomic) IBOutlet UITextField *orderName;
-@property(weak, nonatomic) IBOutlet UITextView *orderNotes;
-@property(weak, nonatomic) IBOutlet UIDatePicker *orderedAt;
+@property (weak, nonatomic) IBOutlet UITextField *orderName;
+@property (weak, nonatomic) IBOutlet UITextView *orderNotes;
+@property (weak, nonatomic) IBOutlet UIDatePicker *orderedAt;
 
 @end
 

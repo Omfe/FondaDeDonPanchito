@@ -13,8 +13,8 @@ typedef void (^FDDPWebServicesFetchOrdersCompletionBlock)(NSArray *orders, NSErr
 @interface FDDPWebServicesManager : NSObject
 
 - (void)fetchAllOrders:(FDDPWebServicesFetchOrdersCompletionBlock)completion;
-- (void)createOrder:(FDDPOrder *)order andCompletion:(FDDPWebServicesFetchOrdersCompletionBlock)completionBlock;
-- (void)updateOrder:(FDDPOrder *)order andCompletion:(FDDPWebServicesFetchOrdersCompletionBlock)completionBlock;
-- (void)deleteOrder:(FDDPOrder *)order andCompletion:(FDDPWebServicesFetchOrdersCompletionBlock)completionBlock;
+- (void)createOrder:(FDDPOrder *)order withCompletion:(FDDPWebServicesFetchOrdersCompletionBlock)completionBlock;
+- (void)updateOrder:(FDDPOrder *)order withCompletion:(FDDPWebServicesFetchOrdersCompletionBlock)completionBlock;
+- (void)deleteOrder:(FDDPOrder *)order withCompletion:(FDDPWebServicesFetchOrdersCompletionBlock)completionBlock;
 
 @end

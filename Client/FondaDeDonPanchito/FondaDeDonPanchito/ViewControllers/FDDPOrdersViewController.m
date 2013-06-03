@@ -78,7 +78,6 @@
 - (IBAction)addNewOrder:(id)sender
 {
     [self presentOrderEditorViewControllerWithOrder:nil];
-    
 }
 
 
@@ -110,7 +109,6 @@
         [self.navigationController popViewControllerAnimated:YES];
     }];
     [self.navigationController pushViewController:orderEditorViewController animated:YES];
-
 }
 
 @end

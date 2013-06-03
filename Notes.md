@@ -27,6 +27,12 @@
   * Declarar createOrder:, void, recibe un order y un completionBlock
   * Declarar updateOrder:, void, recibe un order y un completiomBlock
   * Declarar deleteOrder:, void, recibe un order y un completiomBlock
+  
+* OrderEditorViewController
+  * Propiedades IBOutlets privadas:
+    * UITextField orderName
+    * UITextView orderNotes
+    * UIDatePicker orderedAt
 
 
 #### UI

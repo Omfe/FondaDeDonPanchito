@@ -17,7 +17,21 @@
     self.orderName = dictionary[@"orderName"];
     self.orderNotes = dictionary[@"orderNotes"];
     self.orderedAt = [dictionary[@"orderedAt"] dateFromServerString];
-    self.clientId = dictionary[@"clientId"];
+}
+
+- (NSDictionary *)dictionaryRepresentation
+{
+    NSMutableDictionary *dictionary;
+    dictionary = [[NSMutableDictionary alloc] init];
+    
+    dictionary[@"orderId"] = self.orderId;
+    dictionary[@"orderName"] = self.orderName;
+    dictionary[@"orderNotes"] = self.orderNotes;
+    dictionary[@"orderedAt"] = self.orderedAt;
+    
+    return dictionary;
 }
 
 @end
+
+

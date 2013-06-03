@@ -14,8 +14,8 @@
 @property (strong, nonatomic) NSString *orderName;
 @property (strong, nonatomic) NSString *orderNotes;
 @property (strong, nonatomic) NSDate *orderedAt;
-@property (strong, nonatomic) NSNumber *clientId;
 
 - (void)updateFromDictionary:(NSDictionary *)dictionary;
+- (NSDictionary *)dictionaryRepresentation;
 
 @end

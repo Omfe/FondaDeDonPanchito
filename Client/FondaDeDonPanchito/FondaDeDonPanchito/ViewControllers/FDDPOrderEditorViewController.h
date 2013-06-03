@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 Omar Gudino. All rights reserved.
 //
 
-#import "FDDPOrder.h"
+@class FDDPOrder;
 
 @interface FDDPOrderEditorViewController : UIViewController
 
 typedef void(^FDDPOrderEditorCompletionBlock)();
 
 @property (strong, nonatomic) FDDPOrder *order;
-@property (assign, nonatomic) FDDPOrderEditorCompletionBlock completionBlock;
+@property (copy, nonatomic) FDDPOrderEditorCompletionBlock completionBlock;
 
 @end

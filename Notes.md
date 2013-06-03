@@ -11,28 +11,10 @@
 ### Client
 
 * OrderEditorViewController
-  * Agregar propiedad pública "order"
-  * Declarar un bloque (typedef) que no recibe nada
-  * Declarar una propiedad (assign) de tipo FDDPOrderEditorCompletionBlock que se llame "completionBlock"
-* OrdersViewController
-  * En addNewOrder:, pasarle un completionBlock al orderEditorViewController.
-  * Nuevo método privado "presentOrderEditorViewControllerWithOrder:" que recibe un FDDPOrder
-    * Agarrar todo el código de addNewOrder: y ponerlo aquí
-    * Asignar el order que nos están mandando al orderEditorViewController antes de asignar completionBlock
-    * Adentro del completionBlock, mandar llamar a fetchAllOrders
-  * En addNewOrder, mandar llamar al método presentOrderEditorViewControllerWithOrder:
-  * En didSelectRowAtIndexPath: mandar llamar al método presentOrderEditorViewControllerWithOrder: y pasarle el order de la celda que seleccionaron
-
-* WebServicesManager
-  * Declarar createOrder:, void, recibe un order y un completionBlock
-  * Declarar updateOrder:, void, recibe un order y un completiomBlock
-  * Declarar deleteOrder:, void, recibe un order y un completiomBlock
-  
-* OrderEditorViewController
-  * Propiedades IBOutlets privadas:
-    * UITextField orderName
-    * UITextView orderNotes
-    * UIDatePicker orderedAt
+  * Agregar un TextField
+  * Agregar un TextView
+  * Agregar un DatePicker
+  * Agregar un botón de Delete
 
 
 #### UI

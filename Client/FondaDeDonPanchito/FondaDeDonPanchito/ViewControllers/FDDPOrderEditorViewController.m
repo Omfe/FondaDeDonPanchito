@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *orderNameTextField;
 @property (weak, nonatomic) IBOutlet UITextView *orderNotesTextView;
 @property (weak, nonatomic) IBOutlet UIDatePicker *orderedAtDatePicker;
+@property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 
 @end
 
@@ -75,10 +76,12 @@
 #pragma mark - Private Methods
 - (void)setupUI
 {
+    self.deleteButton.hidden = YES;
     if (self.order) {
         self.orderNameTextField.text = self.order.orderName;
         self.orderNotesTextView.text = self.order.orderNotes;
         self.orderedAtDatePicker.date = self.order.orderedAt;
+        self.deleteButton.hidden = NO;
     }
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneWasPressed:)];

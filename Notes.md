@@ -23,6 +23,11 @@
   * En addNewOrder, mandar llamar al método presentOrderEditorViewControllerWithOrder:
   * En didSelectRowAtIndexPath: mandar llamar al método presentOrderEditorViewControllerWithOrder: y pasarle el order de la celda que seleccionaron
 
+* WebServicesManager
+  * Declarar createOrder:, void, recibe un order y un completionBlock
+  * Declarar updateOrder:, void, recibe un order y un completiomBlock
+  * Declarar deleteOrder:, void, recibe un order y un completiomBlock
+
 
 #### UI
 

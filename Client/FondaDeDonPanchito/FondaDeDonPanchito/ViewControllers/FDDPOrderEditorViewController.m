@@ -11,9 +11,13 @@
 
 @interface FDDPOrderEditorViewController () <UIActionSheetDelegate>
 
+@property (weak, nonatomic) IBOutlet UIView *containerView;
+@property (weak, nonatomic) IBOutlet UIScrollView *containerScrollView;
+
 @property (weak, nonatomic) IBOutlet UITextField *orderNameTextField;
 @property (weak, nonatomic) IBOutlet UITextView *orderNotesTextView;
 @property (weak, nonatomic) IBOutlet UIDatePicker *orderedAtDatePicker;
+@property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 
 @end
 
@@ -71,18 +75,45 @@
     // Present Action sheet
 }
 
+- (IBAction)finishEditing:(id)sender
+{
+    [self.view endEditing:YES];
+}
+
 
 #pragma mark - Private Methods
 - (void)setupUI
 {
+    self.deleteButton.hidden = YES;
     if (self.order) {
         self.orderNameTextField.text = self.order.orderName;
         self.orderNotesTextView.text = self.order.orderNotes;
         self.orderedAtDatePicker.date = self.order.orderedAt;
+        self.deleteButton.hidden = NO;
     }
+    
+    [self.containerScrollView addSubview:self.containerView];
+    [self.containerScrollView setContentSize:self.containerView.bounds.size];
+    
+    [self addBorderToOrderNotesTextView];
+    [self setupTargetActions];
+}
+
+- (void)setupTargetActions
+{
+    UITapGestureRecognizer *tapGestureRecongnizer;
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneWasPressed:)];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelWasPressed:)];
+    
+    tapGestureRecongnizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(finishEditing:)];
+    [self.containerView addGestureRecognizer:tapGestureRecongnizer];
+}
+
+- (void)addBorderToOrderNotesTextView
+{
+    self.orderNotesTextView.layer.borderColor = [UIColor blackColor].CGColor;
+    self.orderNotesTextView.layer.borderWidth = 1;
 }
 
 - (void)callCompletionBlock

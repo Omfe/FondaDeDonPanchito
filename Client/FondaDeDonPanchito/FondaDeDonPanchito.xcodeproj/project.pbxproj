@@ -32,7 +32,6 @@
 		9925F1581739DEEB00070080 /* FDDPMeal.m in Sources */ = {isa = PBXBuildFile; fileRef = 9925F1571739DEEB00070080 /* FDDPMeal.m */; };
 		9925F15B1739DEFA00070080 /* FDDPOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9925F15A1739DEFA00070080 /* FDDPOrder.m */; };
 		9925F15E1739DF0C00070080 /* FDDPUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9925F15D1739DF0C00070080 /* FDDPUser.m */; };
-		9925F1611739DF1E00070080 /* FDDPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9925F1601739DF1E00070080 /* FDDPClient.m */; };
 		99963710174C5750005FC93C /* FDDPUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9996370E174C574F005FC93C /* FDDPUserInfoViewController.m */; };
 		99963711174C5750005FC93C /* FDDPUserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9996370F174C574F005FC93C /* FDDPUserInfoViewController.xib */; };
 		99963715174C57B5005FC93C /* FDDPOrdersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99963713174C57B5005FC93C /* FDDPOrdersViewController.m */; };
@@ -83,8 +82,6 @@
 		9925F15A1739DEFA00070080 /* FDDPOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDDPOrder.m; sourceTree = "<group>"; };
 		9925F15C1739DF0C00070080 /* FDDPUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDDPUser.h; sourceTree = "<group>"; };
 		9925F15D1739DF0C00070080 /* FDDPUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDDPUser.m; sourceTree = "<group>"; };
-		9925F15F1739DF1E00070080 /* FDDPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDDPClient.h; sourceTree = "<group>"; };
-		9925F1601739DF1E00070080 /* FDDPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDDPClient.m; sourceTree = "<group>"; };
 		9996370D174C574F005FC93C /* FDDPUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDDPUserInfoViewController.h; sourceTree = "<group>"; };
 		9996370E174C574F005FC93C /* FDDPUserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDDPUserInfoViewController.m; sourceTree = "<group>"; };
 		9996370F174C574F005FC93C /* FDDPUserInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FDDPUserInfoViewController.xib; sourceTree = "<group>"; };
@@ -229,8 +226,6 @@
 				9925F15A1739DEFA00070080 /* FDDPOrder.m */,
 				9925F15C1739DF0C00070080 /* FDDPUser.h */,
 				9925F15D1739DF0C00070080 /* FDDPUser.m */,
-				9925F15F1739DF1E00070080 /* FDDPClient.h */,
-				9925F1601739DF1E00070080 /* FDDPClient.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -315,7 +310,6 @@
 				9925F1581739DEEB00070080 /* FDDPMeal.m in Sources */,
 				9925F15B1739DEFA00070080 /* FDDPOrder.m in Sources */,
 				9925F15E1739DF0C00070080 /* FDDPUser.m in Sources */,
-				9925F1611739DF1E00070080 /* FDDPClient.m in Sources */,
 				99A4CF0317473494000FED65 /* FDDPLoginViewController.m in Sources */,
 				99A4CF0717473C41000FED65 /* FDDPAuthenticationManager.m in Sources */,
 				99963710174C5750005FC93C /* FDDPUserInfoViewController.m in Sources */,

@@ -12,7 +12,8 @@
 
 * OrderEditorViewController
   * Agregar propiedad pública "order"
-  * Declarar un bloque "completionBlock" (typedef) que no recibe nada
+  * Declarar un bloque (typedef) que no recibe nada
+  * Declarar una propiedad (assign) de tipo FDDPOrderEditorCompletionBlock que se llame "completionBlock"
 * OrdersViewController
   * En addNewOrder:, pasarle un completionBlock al orderEditorViewController.
   * Nuevo método privado "presentOrderEditorViewControllerWithOrder:" que recibe un FDDPOrder

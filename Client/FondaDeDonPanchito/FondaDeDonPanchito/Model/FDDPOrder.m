@@ -22,16 +22,14 @@
 - (NSDictionary *)dictionaryRepresentation
 {
     NSMutableDictionary *dictionary;
-    dictionary = [[NSMutableDictionary alloc] init];
     
+    dictionary = [[NSMutableDictionary alloc] init];
     dictionary[@"orderId"] = self.orderId;
     dictionary[@"orderName"] = self.orderName;
     dictionary[@"orderNotes"] = self.orderNotes;
-    dictionary[@"orderedAt"] = self.orderedAt;
+    dictionary[@"orderedAt"] = [NSString serverStringFromDate:self.orderedAt];
     
     return dictionary;
 }
 
 @end
-
-

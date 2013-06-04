@@ -11,7 +11,6 @@
 @interface FDDPOrder : NSObject
 
 @property (strong, nonatomic) NSNumber *orderId;
-@property (strong, nonatomic) NSString *orderName;
 @property (strong, nonatomic) NSString *orderNotes;
 @property (strong, nonatomic) NSDate *orderedAt;
 

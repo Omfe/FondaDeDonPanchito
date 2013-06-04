@@ -66,13 +66,6 @@ post '/orders' do
     return res.to_json
   end
   
-  unless data.has_key?("orderName")
-    status 400
-    res = { message: "Missing orderName parameter." }
-    content_type :json
-    return res.to_json
-  end
-  
   unless data.has_key?("orderNotes")
     status 400
     res = { message: "Missing orderNotes parameter." }
@@ -87,7 +80,7 @@ post '/orders' do
     return res.to_json
   end
   
-  query = "INSERT INTO fddp_Order (orderName, orderNotes, orderedAt) VALUES('#{data["orderName"]}', '#{data["orderNotes"]}', '#{data["orderedAt"]}')"
+  query = "INSERT INTO fddp_Order (orderNotes, orderedAt) VALUES('#{data["orderNotes"]}', '#{data["orderedAt"]}')"
   puts query
   @@mysqlclient.query(query, as: :hash)
   orderId = @@mysqlclient.last_id
@@ -133,10 +126,6 @@ put '/orders/:id' do
   end
   
   fields = Array.new
-  
-  if data.has_key?("orderName")
-    fields.push("orderName='#{data["orderName"]}'")
-  end
   
   if data.has_key?("orderNotes")
     fields.push("orderNotes=#{data["orderNotes"]}")

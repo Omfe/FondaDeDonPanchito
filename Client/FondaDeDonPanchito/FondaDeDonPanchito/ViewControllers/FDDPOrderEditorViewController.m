@@ -108,11 +108,13 @@
 #pragma mark - Private Methods
 - (void)setupUI
 {
-    self.deleteButton.hidden = YES;
     if (self.order) {
         self.orderIDLabel.text = [self.order.orderId stringValue];
         self.orderNotesTextView.text = self.order.orderNotes;
         self.deleteButton.hidden = NO;
+    } else {
+        self.orderIDLabel.text = @"New Order";
+        self.deleteButton.hidden = YES;
     }
     
     [self.containerScrollView addSubview:self.containerView];

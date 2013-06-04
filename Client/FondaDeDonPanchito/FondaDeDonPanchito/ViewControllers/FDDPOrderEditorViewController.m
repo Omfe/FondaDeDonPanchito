@@ -8,6 +8,8 @@
 
 #import "FDDPOrderEditorViewController.h"
 #import "FDDPOrder.h"
+#import "FDDPWebServicesManager.h"
+
 
 @interface FDDPOrderEditorViewController () <UIActionSheetDelegate>
 
@@ -16,8 +18,8 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *orderNameTextField;
 @property (weak, nonatomic) IBOutlet UITextView *orderNotesTextView;
-@property (weak, nonatomic) IBOutlet UIDatePicker *orderedAtDatePicker;
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
+@property (strong, nonatomic) UIActionSheet *deleteActionSheet;
 
 @end
 
@@ -43,7 +45,7 @@
 #pragma mark - UIActionSheetDelegate Methods
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (0) { // Change to if buttonIndex is the cancel one
+    if (buttonIndex == 1) { // Change to if buttonIndex is the cancel one
         return;
     }
     
@@ -57,10 +59,31 @@
 #pragma mark - Action Methods
 - (IBAction)doneWasPressed:(id)sender
 {
+    FDDPWebServicesManager *webServicesManager;
+    FDDPOrder *order;
+    
+    webServicesManager = [[FDDPWebServicesManager alloc] init];
+    order = [[FDDPOrder alloc] init];
+    order.orderName = self.orderNameTextField.text;
+    order.orderNotes = self.orderNotesTextView.text;
+    order.orderedAt = [NSDate date];
+    
     if (self.order) {
-        // Call update WebService
+        [webServicesManager updateOrder:order withCompletion:^(NSString *message, NSError *error) {
+            if (error) {
+                [[[UIAlertView alloc] initWithTitle:@"There was an error!" message:[NSString stringWithFormat:@"%@", error.localizedDescription] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+                return;
+            }
+            [[[UIAlertView alloc] initWithTitle:@"Message" message:message delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+        }];
     } else {
-        // Call create WebService
+        [webServicesManager createOrder:order withCompletion:^(NSString *message, NSError *error) {
+            if (error) {
+                [[[UIAlertView alloc] initWithTitle:@"There was an error!" message:[NSString stringWithFormat:@"%@", error.localizedDescription] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+                return;
+            }
+            [[[UIAlertView alloc] initWithTitle:@"Message" message:message delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+        }];
     }
     [self callCompletionBlock];
 }
@@ -72,7 +95,9 @@
 
 - (IBAction)deleteWasPressed:(id)sender
 {
-    // Present Action sheet
+    self.deleteActionSheet = [[UIActionSheet alloc] initWithTitle:@"Delete?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete" otherButtonTitles:nil, nil];
+    [self.deleteActionSheet showFromTabBar:self.tabBarController.tabBar];
+    self.deleteActionSheet.delegate = self;
 }
 
 - (IBAction)finishEditing:(id)sender
@@ -88,7 +113,6 @@
     if (self.order) {
         self.orderNameTextField.text = self.order.orderName;
         self.orderNotesTextView.text = self.order.orderNotes;
-        self.orderedAtDatePicker.date = self.order.orderedAt;
         self.deleteButton.hidden = NO;
     }
     

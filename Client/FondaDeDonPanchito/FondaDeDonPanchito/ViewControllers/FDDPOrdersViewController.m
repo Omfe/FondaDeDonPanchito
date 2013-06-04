@@ -56,7 +56,7 @@
     
     order = [[FDDPOrder alloc] init];
     order = [self.ordersArray objectAtIndex:indexPath.row];
-    cell.textLabel.text = order.orderName;
+    cell.textLabel.text = [NSString stringWithFormat:@"Order %@", order.orderId];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;

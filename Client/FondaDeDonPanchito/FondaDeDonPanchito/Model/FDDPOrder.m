@@ -14,8 +14,13 @@
 - (void)updateFromDictionary:(NSDictionary *)dictionary
 {
     self.orderId = dictionary[@"id"];
-    self.orderNotes = dictionary[@"orderNotes"];
     self.orderedAt = [dictionary[@"orderedAt"] dateFromServerString];
+    
+    if (dictionary[@"orderNotes"] != [NSNull null]) {
+        self.orderNotes = dictionary[@"orderNotes"];
+    } else {
+        self.orderNotes = @"";
+    }
 }
 
 - (NSDictionary *)dictionaryRepresentation

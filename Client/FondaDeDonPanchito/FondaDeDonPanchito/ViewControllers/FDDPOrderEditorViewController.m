@@ -9,6 +9,9 @@
 #import "FDDPOrderEditorViewController.h"
 #import "FDDPOrder.h"
 #import "FDDPWebServicesManager.h"
+#import "FDDPMealsViewController.h"
+#import "FDDPItemsViewController.h"
+#import "FDDPMealsAndItemsViewController.h"
 
 
 @interface FDDPOrderEditorViewController () <UIActionSheetDelegate>
@@ -19,6 +22,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *orderIDLabel;
 @property (weak, nonatomic) IBOutlet UITextView *orderNotesTextView;
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
+
+@property (nonatomic, weak) IBOutlet UITextView *ordersAndItemsTextView;
+
 @property (strong, nonatomic) UIActionSheet *deleteActionSheet;
 
 @end
@@ -45,12 +51,21 @@
 #pragma mark - UIActionSheetDelegate Methods
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == 1) { // Change to if buttonIndex is the cancel one
+    FDDPWebServicesManager *webServicesManager;
+    
+    if (buttonIndex == 1) {
         return;
     }
     
     if (self.order) {
-        // Call delete WebService
+        webServicesManager = [[FDDPWebServicesManager alloc] init];
+        [webServicesManager deleteOrder:self.order withCompletion:^(NSString *message, NSError *error) {
+            if (error) {
+                [[[UIAlertView alloc] initWithTitle:@"There was an error!" message:[NSString stringWithFormat:@"%@", error.localizedDescription] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+                return;
+            }
+            [[[UIAlertView alloc] initWithTitle:@"Message" message:message delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+        }];
     }
     [self callCompletionBlock];
 }
@@ -102,6 +117,27 @@
 - (IBAction)finishEditing:(id)sender
 {
     [self.view endEditing:YES];
+}
+
+- (IBAction)addMealWasPressed:(id)sender
+{
+    FDDPMealsViewController *mealsViewController;
+    
+    //
+}
+
+- (IBAction)addItemWasPressed:(id)sender
+{
+    FDDPItemsViewController *itemsViewController;
+    
+    //
+}
+
+- (IBAction)removeWasPressed:(id)sender
+{
+    FDDPMealsAndItemsViewController *mealsAndItemsViewController;
+    
+    //
 }
 
 

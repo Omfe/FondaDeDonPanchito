@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		42126DFA175DBB34002DC493 /* FDDPMealsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42126DF8175DBB34002DC493 /* FDDPMealsViewController.m */; };
 		42126DFB175DBB34002DC493 /* FDDPMealsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42126DF9175DBB34002DC493 /* FDDPMealsViewController.xib */; };
+		42126DFF175DBD0E002DC493 /* FDDPMealsAndItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42126DFD175DBD0E002DC493 /* FDDPMealsAndItemsViewController.m */; };
+		42126E00175DBD0E002DC493 /* FDDPMealsAndItemsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42126DFE175DBD0E002DC493 /* FDDPMealsAndItemsViewController.xib */; };
 		42F71DC617599B1300D180F4 /* NSString+FDDPAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F71DC517599B1300D180F4 /* NSString+FDDPAdditions.m */; };
 		990A777C172DF7D200DB1600 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 990A777B172DF7D200DB1600 /* UIKit.framework */; };
 		990A777E172DF7D200DB1600 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 990A777D172DF7D200DB1600 /* Foundation.framework */; };
@@ -47,6 +49,9 @@
 		42126DF7175DBB34002DC493 /* FDDPMealsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDDPMealsViewController.h; sourceTree = "<group>"; };
 		42126DF8175DBB34002DC493 /* FDDPMealsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDDPMealsViewController.m; sourceTree = "<group>"; };
 		42126DF9175DBB34002DC493 /* FDDPMealsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FDDPMealsViewController.xib; sourceTree = "<group>"; };
+		42126DFC175DBD0E002DC493 /* FDDPMealsAndItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDDPMealsAndItemsViewController.h; sourceTree = "<group>"; };
+		42126DFD175DBD0E002DC493 /* FDDPMealsAndItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDDPMealsAndItemsViewController.m; sourceTree = "<group>"; };
+		42126DFE175DBD0E002DC493 /* FDDPMealsAndItemsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FDDPMealsAndItemsViewController.xib; sourceTree = "<group>"; };
 		42F71DC417599B1300D180F4 /* NSString+FDDPAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FDDPAdditions.h"; sourceTree = "<group>"; };
 		42F71DC517599B1300D180F4 /* NSString+FDDPAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FDDPAdditions.m"; sourceTree = "<group>"; };
 		990A7778172DF7D200DB1600 /* FondaDeDonPanchito.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FondaDeDonPanchito.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,6 +142,9 @@
 				9921C3C81759A39F00D0FC02 /* FDDPOrderEditorViewController.h */,
 				9921C3C91759A3A000D0FC02 /* FDDPOrderEditorViewController.m */,
 				9921C3CA1759A3A000D0FC02 /* FDDPOrderEditorViewController.xib */,
+				42126DFC175DBD0E002DC493 /* FDDPMealsAndItemsViewController.h */,
+				42126DFD175DBD0E002DC493 /* FDDPMealsAndItemsViewController.m */,
+				42126DFE175DBD0E002DC493 /* FDDPMealsAndItemsViewController.xib */,
 				42126DF7175DBB34002DC493 /* FDDPMealsViewController.h */,
 				42126DF8175DBB34002DC493 /* FDDPMealsViewController.m */,
 				42126DF9175DBB34002DC493 /* FDDPMealsViewController.xib */,
@@ -303,6 +311,7 @@
 				9921C3D61759A3E100D0FC02 /* FDDPItemsViewController.xib in Resources */,
 				9921C3DB1759A42600D0FC02 /* FDDPItemEditorViewController.xib in Resources */,
 				42126DFB175DBB34002DC493 /* FDDPMealsViewController.xib in Resources */,
+				42126E00175DBD0E002DC493 /* FDDPMealsAndItemsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,6 +340,7 @@
 				9921C3DA1759A42600D0FC02 /* FDDPItemEditorViewController.m in Sources */,
 				9917D61D1759B67700B6FF1C /* FDDPWebServicesManager.m in Sources */,
 				42126DFA175DBB34002DC493 /* FDDPMealsViewController.m in Sources */,
+				42126DFF175DBD0E002DC493 /* FDDPMealsAndItemsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

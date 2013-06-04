@@ -16,7 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (weak, nonatomic) IBOutlet UIScrollView *containerScrollView;
 
-@property (weak, nonatomic) IBOutlet UITextField *orderNameTextField;
+@property (weak, nonatomic) IBOutlet UILabel *orderIDLabel;
 @property (weak, nonatomic) IBOutlet UITextView *orderNotesTextView;
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 @property (strong, nonatomic) UIActionSheet *deleteActionSheet;
@@ -64,7 +64,6 @@
     
     webServicesManager = [[FDDPWebServicesManager alloc] init];
     order = [[FDDPOrder alloc] init];
-    order.orderName = self.orderNameTextField.text;
     order.orderNotes = self.orderNotesTextView.text;
     order.orderedAt = [NSDate date];
     
@@ -111,7 +110,7 @@
 {
     self.deleteButton.hidden = YES;
     if (self.order) {
-        self.orderNameTextField.text = self.order.orderName;
+        self.orderIDLabel.text = [self.order.orderId stringValue];
         self.orderNotesTextView.text = self.order.orderNotes;
         self.deleteButton.hidden = NO;
     }

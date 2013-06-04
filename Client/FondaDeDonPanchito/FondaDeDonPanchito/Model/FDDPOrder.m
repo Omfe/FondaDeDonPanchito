@@ -14,7 +14,6 @@
 - (void)updateFromDictionary:(NSDictionary *)dictionary
 {
     self.orderId = dictionary[@"orderId"];
-    self.orderName = dictionary[@"orderName"];
     self.orderNotes = dictionary[@"orderNotes"];
     self.orderedAt = [dictionary[@"orderedAt"] dateFromServerString];
 }
@@ -25,7 +24,6 @@
     
     dictionary = [[NSMutableDictionary alloc] init];
     dictionary[@"orderId"] = self.orderId;
-    dictionary[@"orderName"] = self.orderName;
     dictionary[@"orderNotes"] = self.orderNotes;
     dictionary[@"orderedAt"] = [NSString serverStringFromDate:self.orderedAt];
     

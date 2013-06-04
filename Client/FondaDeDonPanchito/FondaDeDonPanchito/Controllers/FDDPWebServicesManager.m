@@ -62,17 +62,17 @@
     }];
 }
 
-- (void)createOrder:(FDDPOrder *)order withCompletion:(FDDPWebServicesFetchOrdersCompletionBlock)completionBlock
+- (void)createOrder:(FDDPOrder *)order withCompletion:(FDDPWebServicesOrderCompletionBlock)completionBlock
 {
     
 }
 
-- (void)updateOrder:(FDDPOrder *)order withCompletion:(FDDPWebServicesFetchOrdersCompletionBlock)completionBlock
+- (void)updateOrder:(FDDPOrder *)order withCompletion:(FDDPWebServicesOrderCompletionBlock)completionBlock
 {
     
 }
 
-- (void)deleteOrder:(FDDPOrder *)order withCompletion:(FDDPWebServicesFetchOrdersCompletionBlock)completionBlock
+- (void)deleteOrder:(FDDPOrder *)order withCompletion:(FDDPWebServicesOrderCompletionBlock)completionBlock
 {
     
 }

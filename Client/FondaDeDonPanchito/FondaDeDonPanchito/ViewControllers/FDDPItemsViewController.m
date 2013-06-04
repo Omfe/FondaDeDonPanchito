@@ -1,18 +1,18 @@
 //
-//  FDDPItemChooserViewController.m
+//  FDDPItemsViewController.m
 //  FondaDeDonPanchito
 //
 //  Created by Omar Gudino on 5/31/13.
 //  Copyright (c) 2013 Omar Gudino. All rights reserved.
 //
 
-#import "FDDPItemChooserViewController.h"
+#import "FDDPItemsViewController.h"
 
-@interface FDDPItemChooserViewController ()
+@interface FDDPItemsViewController ()
 
 @end
 
-@implementation FDDPItemChooserViewController
+@implementation FDDPItemsViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

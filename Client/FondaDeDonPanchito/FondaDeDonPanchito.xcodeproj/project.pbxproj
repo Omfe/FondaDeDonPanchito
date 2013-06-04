@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42126DFA175DBB34002DC493 /* FDDPMealsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42126DF8175DBB34002DC493 /* FDDPMealsViewController.m */; };
+		42126DFB175DBB34002DC493 /* FDDPMealsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42126DF9175DBB34002DC493 /* FDDPMealsViewController.xib */; };
 		42F71DC617599B1300D180F4 /* NSString+FDDPAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F71DC517599B1300D180F4 /* NSString+FDDPAdditions.m */; };
 		990A777C172DF7D200DB1600 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 990A777B172DF7D200DB1600 /* UIKit.framework */; };
 		990A777E172DF7D200DB1600 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 990A777D172DF7D200DB1600 /* Foundation.framework */; };
@@ -24,8 +26,8 @@
 		9921C3CC1759A3A000D0FC02 /* FDDPOrderEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9921C3CA1759A3A000D0FC02 /* FDDPOrderEditorViewController.xib */; };
 		9921C3D01759A3C000D0FC02 /* FDDPMealEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9921C3CE1759A3C000D0FC02 /* FDDPMealEditorViewController.m */; };
 		9921C3D11759A3C000D0FC02 /* FDDPMealEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9921C3CF1759A3C000D0FC02 /* FDDPMealEditorViewController.xib */; };
-		9921C3D51759A3E100D0FC02 /* FDDPItemChooserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9921C3D31759A3E100D0FC02 /* FDDPItemChooserViewController.m */; };
-		9921C3D61759A3E100D0FC02 /* FDDPItemChooserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9921C3D41759A3E100D0FC02 /* FDDPItemChooserViewController.xib */; };
+		9921C3D51759A3E100D0FC02 /* FDDPItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9921C3D31759A3E100D0FC02 /* FDDPItemsViewController.m */; };
+		9921C3D61759A3E100D0FC02 /* FDDPItemsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9921C3D41759A3E100D0FC02 /* FDDPItemsViewController.xib */; };
 		9921C3DA1759A42600D0FC02 /* FDDPItemEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9921C3D81759A42500D0FC02 /* FDDPItemEditorViewController.m */; };
 		9921C3DB1759A42600D0FC02 /* FDDPItemEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9921C3D91759A42600D0FC02 /* FDDPItemEditorViewController.xib */; };
 		9925F1551739DED800070080 /* FDDPItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9925F1541739DED800070080 /* FDDPItem.m */; };
@@ -42,6 +44,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		42126DF7175DBB34002DC493 /* FDDPMealsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDDPMealsViewController.h; sourceTree = "<group>"; };
+		42126DF8175DBB34002DC493 /* FDDPMealsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDDPMealsViewController.m; sourceTree = "<group>"; };
+		42126DF9175DBB34002DC493 /* FDDPMealsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FDDPMealsViewController.xib; sourceTree = "<group>"; };
 		42F71DC417599B1300D180F4 /* NSString+FDDPAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FDDPAdditions.h"; sourceTree = "<group>"; };
 		42F71DC517599B1300D180F4 /* NSString+FDDPAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FDDPAdditions.m"; sourceTree = "<group>"; };
 		990A7778172DF7D200DB1600 /* FondaDeDonPanchito.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FondaDeDonPanchito.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,9 +73,9 @@
 		9921C3CD1759A3C000D0FC02 /* FDDPMealEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDDPMealEditorViewController.h; sourceTree = "<group>"; };
 		9921C3CE1759A3C000D0FC02 /* FDDPMealEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDDPMealEditorViewController.m; sourceTree = "<group>"; };
 		9921C3CF1759A3C000D0FC02 /* FDDPMealEditorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FDDPMealEditorViewController.xib; sourceTree = "<group>"; };
-		9921C3D21759A3E100D0FC02 /* FDDPItemChooserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDDPItemChooserViewController.h; sourceTree = "<group>"; };
-		9921C3D31759A3E100D0FC02 /* FDDPItemChooserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDDPItemChooserViewController.m; sourceTree = "<group>"; };
-		9921C3D41759A3E100D0FC02 /* FDDPItemChooserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FDDPItemChooserViewController.xib; sourceTree = "<group>"; };
+		9921C3D21759A3E100D0FC02 /* FDDPItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDDPItemsViewController.h; sourceTree = "<group>"; };
+		9921C3D31759A3E100D0FC02 /* FDDPItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDDPItemsViewController.m; sourceTree = "<group>"; };
+		9921C3D41759A3E100D0FC02 /* FDDPItemsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FDDPItemsViewController.xib; sourceTree = "<group>"; };
 		9921C3D71759A42500D0FC02 /* FDDPItemEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDDPItemEditorViewController.h; sourceTree = "<group>"; };
 		9921C3D81759A42500D0FC02 /* FDDPItemEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDDPItemEditorViewController.m; sourceTree = "<group>"; };
 		9921C3D91759A42600D0FC02 /* FDDPItemEditorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FDDPItemEditorViewController.xib; sourceTree = "<group>"; };
@@ -132,21 +137,24 @@
 				9921C3C81759A39F00D0FC02 /* FDDPOrderEditorViewController.h */,
 				9921C3C91759A3A000D0FC02 /* FDDPOrderEditorViewController.m */,
 				9921C3CA1759A3A000D0FC02 /* FDDPOrderEditorViewController.xib */,
+				42126DF7175DBB34002DC493 /* FDDPMealsViewController.h */,
+				42126DF8175DBB34002DC493 /* FDDPMealsViewController.m */,
+				42126DF9175DBB34002DC493 /* FDDPMealsViewController.xib */,
+				9921C3CD1759A3C000D0FC02 /* FDDPMealEditorViewController.h */,
+				9921C3CE1759A3C000D0FC02 /* FDDPMealEditorViewController.m */,
+				9921C3CF1759A3C000D0FC02 /* FDDPMealEditorViewController.xib */,
+				9921C3D21759A3E100D0FC02 /* FDDPItemsViewController.h */,
+				9921C3D31759A3E100D0FC02 /* FDDPItemsViewController.m */,
+				9921C3D41759A3E100D0FC02 /* FDDPItemsViewController.xib */,
+				9921C3D71759A42500D0FC02 /* FDDPItemEditorViewController.h */,
+				9921C3D81759A42500D0FC02 /* FDDPItemEditorViewController.m */,
+				9921C3D91759A42600D0FC02 /* FDDPItemEditorViewController.xib */,
 				9996370D174C574F005FC93C /* FDDPUserInfoViewController.h */,
 				9996370E174C574F005FC93C /* FDDPUserInfoViewController.m */,
 				9996370F174C574F005FC93C /* FDDPUserInfoViewController.xib */,
 				9921C3BE1756F3B900D0FC02 /* FDDPAdminViewController.h */,
 				9921C3BF1756F3B900D0FC02 /* FDDPAdminViewController.m */,
 				9921C3C01756F3B900D0FC02 /* FDDPAdminViewController.xib */,
-				9921C3CD1759A3C000D0FC02 /* FDDPMealEditorViewController.h */,
-				9921C3CE1759A3C000D0FC02 /* FDDPMealEditorViewController.m */,
-				9921C3CF1759A3C000D0FC02 /* FDDPMealEditorViewController.xib */,
-				9921C3D21759A3E100D0FC02 /* FDDPItemChooserViewController.h */,
-				9921C3D31759A3E100D0FC02 /* FDDPItemChooserViewController.m */,
-				9921C3D41759A3E100D0FC02 /* FDDPItemChooserViewController.xib */,
-				9921C3D71759A42500D0FC02 /* FDDPItemEditorViewController.h */,
-				9921C3D81759A42500D0FC02 /* FDDPItemEditorViewController.m */,
-				9921C3D91759A42600D0FC02 /* FDDPItemEditorViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -292,8 +300,9 @@
 				9921C3C21756F3B900D0FC02 /* FDDPAdminViewController.xib in Resources */,
 				9921C3CC1759A3A000D0FC02 /* FDDPOrderEditorViewController.xib in Resources */,
 				9921C3D11759A3C000D0FC02 /* FDDPMealEditorViewController.xib in Resources */,
-				9921C3D61759A3E100D0FC02 /* FDDPItemChooserViewController.xib in Resources */,
+				9921C3D61759A3E100D0FC02 /* FDDPItemsViewController.xib in Resources */,
 				9921C3DB1759A42600D0FC02 /* FDDPItemEditorViewController.xib in Resources */,
+				42126DFB175DBB34002DC493 /* FDDPMealsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,9 +327,10 @@
 				42F71DC617599B1300D180F4 /* NSString+FDDPAdditions.m in Sources */,
 				9921C3CB1759A3A000D0FC02 /* FDDPOrderEditorViewController.m in Sources */,
 				9921C3D01759A3C000D0FC02 /* FDDPMealEditorViewController.m in Sources */,
-				9921C3D51759A3E100D0FC02 /* FDDPItemChooserViewController.m in Sources */,
+				9921C3D51759A3E100D0FC02 /* FDDPItemsViewController.m in Sources */,
 				9921C3DA1759A42600D0FC02 /* FDDPItemEditorViewController.m in Sources */,
 				9917D61D1759B67700B6FF1C /* FDDPWebServicesManager.m in Sources */,
+				42126DFA175DBB34002DC493 /* FDDPMealsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

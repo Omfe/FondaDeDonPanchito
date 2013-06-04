@@ -23,7 +23,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *orderNotesTextView;
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 
-@property (nonatomic, weak) IBOutlet UITextView *ordersAndItemsTextView;
+@property (nonatomic, weak) IBOutlet UITextView *mealsAndItemsTextView;
 
 @property (strong, nonatomic) UIActionSheet *deleteActionSheet;
 
@@ -156,7 +156,7 @@
     [self.containerScrollView addSubview:self.containerView];
     [self.containerScrollView setContentSize:self.containerView.bounds.size];
     
-    [self addBorderToOrderNotesTextView];
+    [self addBorderToTextViews];
     [self setupTargetActions];
 }
 
@@ -171,10 +171,13 @@
     [self.containerView addGestureRecognizer:tapGestureRecongnizer];
 }
 
-- (void)addBorderToOrderNotesTextView
+- (void)addBorderToTextViews
 {
     self.orderNotesTextView.layer.borderColor = [UIColor blackColor].CGColor;
     self.orderNotesTextView.layer.borderWidth = 1;
+    
+    self.mealsAndItemsTextView.layer.borderColor = [UIColor blackColor].CGColor;
+    self.mealsAndItemsTextView.layer.borderWidth = 1;
 }
 
 - (void)callCompletionBlock

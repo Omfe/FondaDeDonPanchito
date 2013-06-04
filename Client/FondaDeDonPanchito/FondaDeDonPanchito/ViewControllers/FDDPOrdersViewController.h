@@ -1,5 +1,5 @@
 //
-//  FDDPRegistryViewController.h
+//  FDDPOrdersViewController.h
 //  FondaDeDonPanchito
 //
 //  Created by Omar Gudino on 5/21/13.

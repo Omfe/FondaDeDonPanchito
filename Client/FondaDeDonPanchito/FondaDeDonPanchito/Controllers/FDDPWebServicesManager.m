@@ -62,4 +62,18 @@
     }];
 }
 
+- (void)createOrder:(FDDPOrder *)order withCompletion:(FDDPWebServicesFetchOrdersCompletionBlock)completionBlock
+{
+    
+}
+
+- (void)updateOrder:(FDDPOrder *)order withCompletion:(FDDPWebServicesFetchOrdersCompletionBlock)completionBlock
+{
+    
+}
+
+- (void)deleteOrder:(FDDPOrder *)order withCompletion:(FDDPWebServicesFetchOrdersCompletionBlock)completionBlock
+{
+    
+}
 @end

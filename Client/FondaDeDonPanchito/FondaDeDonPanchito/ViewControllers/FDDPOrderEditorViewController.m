@@ -78,12 +78,12 @@
     FDDPOrder *order;
     
     webServicesManager = [[FDDPWebServicesManager alloc] init];
-    order = [[FDDPOrder alloc] init];
-    order.orderNotes = self.orderNotesTextView.text;
-    order.orderedAt = [NSDate date];
     
     if (self.order) {
-        [webServicesManager updateOrder:order withCompletion:^(NSString *message, NSError *error) {
+        self.order.orderNotes = self.orderNotesTextView.text;
+        
+        [webServicesManager updateOrder:self.order withCompletion:^(NSString *message, NSError *error) {
+            [self callCompletionBlock];
             if (error) {
                 [[[UIAlertView alloc] initWithTitle:@"There was an error!" message:[NSString stringWithFormat:@"%@", error.localizedDescription] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
                 return;
@@ -91,7 +91,12 @@
             [[[UIAlertView alloc] initWithTitle:@"Message" message:message delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
         }];
     } else {
+        order = [[FDDPOrder alloc] init];
+        order.orderedAt = [NSDate date];
+        order.orderNotes = self.orderNotesTextView.text;
+        
         [webServicesManager createOrder:order withCompletion:^(NSString *message, NSError *error) {
+            [self callCompletionBlock];
             if (error) {
                 [[[UIAlertView alloc] initWithTitle:@"There was an error!" message:[NSString stringWithFormat:@"%@", error.localizedDescription] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
                 return;
@@ -99,7 +104,6 @@
             [[[UIAlertView alloc] initWithTitle:@"Message" message:message delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
         }];
     }
-    [self callCompletionBlock];
 }
 
 - (IBAction)cancelWasPressed:(id)sender

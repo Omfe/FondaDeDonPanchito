@@ -35,21 +35,33 @@
 
 - (NSDate *)dateFromServerString
 {
-    return [[[self class] serverDateFormatter] dateFromString:self];
+    return [[[self class] clientDateFormatter] dateFromString:self];
 }
 
 
 #pragma mark - Private Methods
-+ (NSDateFormatter *)serverDateFormatter
++ (NSDateFormatter *)clientDateFormatter
 {
-    static NSDateFormatter *dateFormatter = nil;
+    static NSDateFormatter *clientDateFormatter = nil;
     
-    if ( !dateFormatter ) {
-        dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    if ( !clientDateFormatter ) {
+        clientDateFormatter = [[NSDateFormatter alloc] init];
+        [clientDateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss Z"];
     }
     
-    return dateFormatter;
+    return clientDateFormatter;
+}
+
++ (NSDateFormatter *)serverDateFormatter
+{
+    static NSDateFormatter *serverDateFormatter = nil;
+    
+    if ( !serverDateFormatter ) {
+        serverDateFormatter = [[NSDateFormatter alloc] init];
+        [serverDateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    }
+    
+    return serverDateFormatter;
 }
 
 @end

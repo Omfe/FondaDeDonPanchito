@@ -84,6 +84,7 @@
     
     if (self.order) {
         [webServicesManager updateOrder:order withCompletion:^(NSString *message, NSError *error) {
+            [self callCompletionBlock];
             if (error) {
                 [[[UIAlertView alloc] initWithTitle:@"There was an error!" message:[NSString stringWithFormat:@"%@", error.localizedDescription] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
                 return;
@@ -92,6 +93,7 @@
         }];
     } else {
         [webServicesManager createOrder:order withCompletion:^(NSString *message, NSError *error) {
+            [self callCompletionBlock];
             if (error) {
                 [[[UIAlertView alloc] initWithTitle:@"There was an error!" message:[NSString stringWithFormat:@"%@", error.localizedDescription] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
                 return;
@@ -99,7 +101,6 @@
             [[[UIAlertView alloc] initWithTitle:@"Message" message:message delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
         }];
     }
-    [self callCompletionBlock];
 }
 
 - (IBAction)cancelWasPressed:(id)sender

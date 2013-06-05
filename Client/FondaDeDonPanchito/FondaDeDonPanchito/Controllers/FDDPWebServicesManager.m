@@ -7,7 +7,9 @@
 //
 
 #import "FDDPWebServicesManager.h"
-#import "FDDPOrder.h"   
+#import "FDDPOrder.h"
+#import "FDDPMeal.h"
+#import "FDDPItem.h"
 #import "FDDPAuthenticationManager.h"
 #import "NSString+FDDPAdditions.h"
 
@@ -186,5 +188,101 @@
         }
     }];
 }
+
+- (void)fetchAllMeals:(FDDPWebServicesFetchMealsCompletionBlock)completion
+{
+    NSMutableURLRequest *urlRequest;
+    NSURL *url;
+    NSString *urlString;
+    
+    urlString = [kServerURL stringByAppendingPathComponent:@"meals"];
+    urlString = [urlString stringByAddingURLParameters:@{ @"token": [[FDDPAuthenticationManager sharedManager] loggedInUser].token }];
+    url = [NSURL URLWithString:urlString];
+    urlRequest = [NSMutableURLRequest requestWithURL:url];
+    [urlRequest setHTTPMethod:@"GET"];
+    
+    [NSURLConnection sendAsynchronousRequest:urlRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *urlResponse, NSData *data, NSError *error){
+        NSDictionary *responseDictionary;
+        NSMutableArray *meals;
+        FDDPMeal *meal;
+        
+        if (error) {
+            if (completion) {
+                completion(nil, error);
+            }
+            return;
+        }
+        
+        responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        
+        if ([(NSHTTPURLResponse *)urlResponse statusCode] == 400) {
+            if (completion) {
+                error = [[NSError alloc] initWithDomain:FDDPServerError code:400 userInfo:@{ NSLocalizedDescriptionKey: responseDictionary[@"message"] }];
+                completion(nil, error);
+            }
+            return;
+        }
+        
+        meals = [[NSMutableArray alloc] init];
+        for (NSDictionary *dictionary in responseDictionary[@"meals"]) {
+            meal = [[FDDPMeal alloc] init];
+            [meal updateFromDictionary:dictionary];
+            [meals addObject:meal];
+        }
+        
+        if (completion) {
+            completion(meals, nil);
+        }
+    }];
+    
+}
+
+- (void)fetchAllItems:(FDDPWebServicesFetchItemsCompletionBlock)completion
+{
+    NSMutableURLRequest *urlRequest;
+    NSURL *url;
+    NSString *urlString;
+    
+    urlString = [kServerURL stringByAppendingPathComponent:@"items"];
+    urlString = [urlString stringByAddingURLParameters:@{ @"token": [[FDDPAuthenticationManager sharedManager] loggedInUser].token }];
+    url = [NSURL URLWithString:urlString];
+    urlRequest = [NSMutableURLRequest requestWithURL:url];
+    [urlRequest setHTTPMethod:@"GET"];
+    
+    [NSURLConnection sendAsynchronousRequest:urlRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *urlResponse, NSData *data, NSError *error){
+        NSDictionary *responseDictionary;
+        NSMutableArray *items;
+        FDDPItem *item;
+        
+        if (error) {
+            if (completion) {
+                completion(nil, error);
+            }
+            return;
+        }
+        
+        responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        
+        if ([(NSHTTPURLResponse *)urlResponse statusCode] == 400) {
+            if (completion) {
+                error = [[NSError alloc] initWithDomain:FDDPServerError code:400 userInfo:@{ NSLocalizedDescriptionKey: responseDictionary[@"message"] }];
+                completion(nil, error);
+            }
+            return;
+        }
+        
+        items = [[NSMutableArray alloc] init];
+        for (NSDictionary *dictionary in responseDictionary[@"items"]) {
+            item = [[FDDPItem alloc] init];
+            [item updateFromDictionary:dictionary];
+            [items addObject:item];
+        }
+        
+        if (completion) {
+            completion(items, nil);
+        }
+    }];
+}
+
 @end
 

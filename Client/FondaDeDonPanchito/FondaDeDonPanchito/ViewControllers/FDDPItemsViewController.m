@@ -9,6 +9,7 @@
 #import "FDDPItemsViewController.h"
 
 @interface FDDPItemsViewController ()
+
 @property (weak, nonatomic) IBOutlet UITableView *itemsTableView;
 
 @end
@@ -28,6 +29,7 @@
 {
     [super viewDidLoad];
 }
+
 
 #pragma mark - UITableViewDataSource Methods
 - (void)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

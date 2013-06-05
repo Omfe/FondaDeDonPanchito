@@ -26,8 +26,7 @@
 @property (nonatomic, weak) IBOutlet UITextView *mealsAndItemsTextView;
 
 @property (strong, nonatomic) UIActionSheet *deleteActionSheet;
-
-@property (nonatomic, strong) NSMutableArray *orderObjectsArray;
+@property (nonatomic, assign) BOOL isNewOrder;
 
 @end
 
@@ -46,6 +45,12 @@
 {
     [super viewDidLoad];
     
+    self.isNewOrder = NO;
+    if (!self.order) {
+        self.isNewOrder = YES;
+        self.order = [[FDDPOrder alloc] init];
+    }
+    
     [self setupUI];
 }
 
@@ -59,9 +64,10 @@
         return;
     }
     
-    if (self.order) {
+    if (!self.isNewOrder) {
         webServicesManager = [[FDDPWebServicesManager alloc] init];
         [webServicesManager deleteOrder:self.order withCompletion:^(NSString *message, NSError *error) {
+            [self callCompletionBlock];
             if (error) {
                 [[[UIAlertView alloc] initWithTitle:@"There was an error!" message:[NSString stringWithFormat:@"%@", error.localizedDescription] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
                 return;
@@ -69,7 +75,6 @@
             [[[UIAlertView alloc] initWithTitle:@"Message" message:message delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
         }];
     }
-    [self callCompletionBlock];
 }
 
 
@@ -77,14 +82,14 @@
 - (IBAction)doneWasPressed:(id)sender
 {
     FDDPWebServicesManager *webServicesManager;
-    FDDPOrder *order;
     
     webServicesManager = [[FDDPWebServicesManager alloc] init];
     
-    if (self.order) {
-        self.order.orderNotes = self.orderNotesTextView.text;
-        
-        [webServicesManager updateOrder:self.order withCompletion:^(NSString *message, NSError *error) {
+    self.order.orderNotes = self.orderNotesTextView.text;
+    
+    if (self.isNewOrder) {
+        self.order.orderedAt = [NSDate date];
+        [webServicesManager createOrder:self.order withCompletion:^(NSString *message, NSError *error) {
             [self callCompletionBlock];
             if (error) {
                 [[[UIAlertView alloc] initWithTitle:@"There was an error!" message:[NSString stringWithFormat:@"%@", error.localizedDescription] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
@@ -93,11 +98,7 @@
             [[[UIAlertView alloc] initWithTitle:@"Message" message:message delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
         }];
     } else {
-        order = [[FDDPOrder alloc] init];
-        order.orderedAt = [NSDate date];
-        order.orderNotes = self.orderNotesTextView.text;
-        
-        [webServicesManager createOrder:order withCompletion:^(NSString *message, NSError *error) {
+        [webServicesManager updateOrder:self.order withCompletion:^(NSString *message, NSError *error) {
             [self callCompletionBlock];
             if (error) {
                 [[[UIAlertView alloc] initWithTitle:@"There was an error!" message:[NSString stringWithFormat:@"%@", error.localizedDescription] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
@@ -153,9 +154,9 @@
     FDDPMealsAndItemsViewController *mealsAndItemsViewController;
     
     mealsAndItemsViewController = [[FDDPMealsAndItemsViewController alloc] initWithNibName:@"FDDPMealsAndItemsViewController" bundle:nil];
-    mealsAndItemsViewController.orderObjectsArray = self.orderObjectsArray;
+    mealsAndItemsViewController.order = self.order;
     [mealsAndItemsViewController setCompletionBlock:^{
-        // Reload the string
+        [self updateMealsAndItemsTextView];
         [self dismissViewControllerAnimated:YES completion:nil];
     }];
     
@@ -167,7 +168,7 @@
 #pragma mark - Private Methods
 - (void)setupUI
 {
-    if (self.order) {
+    if (self.isNewOrder) {
         self.orderIDLabel.text = [self.order.orderId stringValue];
         self.orderNotesTextView.text = self.order.orderNotes;
         self.deleteButton.hidden = NO;
@@ -181,6 +182,7 @@
     
     [self addBorderToTextViews];
     [self setupTargetActions];
+    [self updateMealsAndItemsTextView];
 }
 
 - (void)setupTargetActions
@@ -192,6 +194,17 @@
     
     tapGestureRecongnizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(finishEditing:)];
     [self.containerView addGestureRecognizer:tapGestureRecongnizer];
+}
+
+- (void)updateMealsAndItemsTextView
+{
+    NSString *mealsString;
+    NSString *itemsString;
+    
+    mealsString = [[self.order.meals valueForKeyPath:@"mealName"] componentsJoinedByString:@", "];
+    itemsString = [[self.order.items valueForKeyPath:@"itemName"] componentsJoinedByString:@", "];
+    
+    self.mealsAndItemsTextView.text = [@[mealsString, itemsString] componentsJoinedByString:@", "];
 }
 
 - (void)addBorderToTextViews

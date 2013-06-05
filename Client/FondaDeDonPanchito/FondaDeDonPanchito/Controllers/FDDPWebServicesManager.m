@@ -7,7 +7,9 @@
 //
 
 #import "FDDPWebServicesManager.h"
-#import "FDDPOrder.h"   
+#import "FDDPOrder.h"
+#import "FDDPMeal.h"
+#import "FDDPItem.h"
 #import "FDDPAuthenticationManager.h"
 #import "NSString+FDDPAdditions.h"
 

@@ -7,10 +7,14 @@
 //
 
 #import "FDDPMealsAndItemsViewController.h"
+#import "FDDPOrder.h"
 #import "FDDPMeal.h"
 #import "FDDPItem.h"
 
 @interface FDDPMealsAndItemsViewController () <UITableViewDataSource, UITableViewDelegate>
+
+@property (nonatomic, strong) NSMutableArray *orderObjectsArray;
+@property (nonatomic, weak) IBOutlet UITableView *orderObjectsTableView;
 
 @end
 
@@ -29,6 +33,7 @@
 {
     [super viewDidLoad];
     [self setupUI];
+    [self setupDataSource];
 }
 
 
@@ -63,16 +68,30 @@
 #pragma mark - UITableViewDelegate Methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSMutableArray *meals;
+    NSMutableArray *items;
+    id object;
+    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [self.orderObjectsArray removeObjectAtIndex:indexPath.row];
-    if (self.completionBlock) {
-        self.completionBlock();
+    
+    object = [self.orderObjectsArray objectAtIndex:indexPath.row];
+    if ([object isKindOfClass:[FDDPMeal class]]) {
+        meals = [self.order.meals mutableCopy];
+        [meals removeObject:object];
+        self.order.meals = meals;
+    } else if ([object isKindOfClass:[FDDPItem class]]) {
+        items = [self.order.items mutableCopy];
+        [items removeObject:object];
+        self.order.items = items;
     }
+    
+    [self setupDataSource];
+    [tableView reloadData];
 }
 
 
 #pragma mark - Action Methods
-- (IBAction)cancelWasPressed:(id)sender
+- (IBAction)doneWasPressed:(id)sender
 {
     if (self.completionBlock) {
         self.completionBlock();
@@ -83,7 +102,15 @@
 #pragma mark - Private Methods
 - (void)setupUI
 {
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelWasPressed:)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneWasPressed:)];
+}
+
+- (void)setupDataSource
+{
+    self.orderObjectsArray = [NSMutableArray array];
+    [self.orderObjectsArray addObjectsFromArray:self.order.meals];
+    [self.orderObjectsArray addObjectsFromArray:self.order.items];
+    [self.orderObjectsTableView reloadData];
 }
 
 @end

@@ -13,6 +13,8 @@
 @property (strong, nonatomic) NSNumber *orderId;
 @property (strong, nonatomic) NSString *orderNotes;
 @property (strong, nonatomic) NSDate *orderedAt;
+@property (nonatomic, strong) NSArray *meals;
+@property (nonatomic, strong) NSArray *items;
 
 - (void)updateFromDictionary:(NSDictionary *)dictionary;
 - (NSDictionary *)dictionaryRepresentation;

@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 Omar Gudino. All rights reserved.
 //
 
-#import "FDDPOrder.h"
+@class FDDPOrder;
 
-typedef void (^FDDPWebServicesFetchOrdersCompletionBlock)(NSArray *orders, NSError *error);
-typedef void (^FDDPWebServicesOrderCompletionBlock)(NSString *message, NSError *error);
+typedef void(^FDDPWebServicesFetchOrdersCompletionBlock)(NSArray *orders, NSError *error);
+typedef void(^FDDPWebServicesOrderCompletionBlock)(NSString *message, NSError *error);
 
 @interface FDDPWebServicesManager : NSObject
 

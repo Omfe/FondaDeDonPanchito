@@ -1,3 +1,26 @@
+# http://localhost:4567/meals
+get '/meals' do
+  message = verifyLoggedIn
+  if message
+    status 400
+    res = { message: message }
+    content_type :json
+    return res.to_json
+  end
+  
+  results_array = Array.new
+  
+  query = "SELECT * FROM fddp_Meal"
+  result = @@mysqlclient.query(query, as: :hash)
+  result.each do |row|
+    results_array.push(row)
+  end
+  
+  res = { message: "Retrieved meals successfully.", meals: results_array }
+  content_type :json
+  res.to_json
+end
+
 # http://localhost:4567/meals/1
 get '/meals/:id' do
   message = verifyLoggedIn

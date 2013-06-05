@@ -153,6 +153,24 @@ put '/orders/:id' do
     @@mysqlclient.query(query, as: :hash)
   end
   
+  # Update relationships
+  query = "DELETE FROM fddp_Meal_has_fddp_Order WHERE Order_id=#{params[:id]}"
+  @@mysqlclient.query(query, as: :hash)
+  if data.has_key?("mealIds")
+    data["mealIds"].each do |mealId|
+      query = "INSERT INTO fddp_Meal_has_fddp_Order (Meal_id, Order_id) VALUES(#{mealId}, #{orderId})"
+      @@mysqlclient.query(query, as: :hash)
+    end    
+  end
+  query = "DELETE FROM fddp_Order WHERE id=#{params[:id]}"
+  @@mysqlclient.query(query, as: :hash)
+  if data.has_key?("itemIds")
+    data["itemIds"].each do |itemId|
+      query = "INSERT INTO fddp_Item_has_fddp_Order (Item_id, Order_id) VALUES(#{itemId}, #{orderId})"
+      @@mysqlclient.query(query, as: :hash)
+    end    
+  end
+  
   res = { message: "Updated order successfully." }
   content_type :json
   res.to_json

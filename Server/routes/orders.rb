@@ -13,6 +13,19 @@ get '/orders' do
   query = "SELECT * FROM fddp_Order"
   result = @@mysqlclient.query(query, as: :hash)
   result.each do |row|
+    query = "SELECT * FROM fddp_Order o INNER JOIN fddp_Meal_has_fddp_Order mo ON o.id = mo.Order_id WHERE o.id = #{row["id"]}"
+    meal_result = @@mysqlclient.query(query, as: :hash)
+    row["meals"] = Array.new
+    meal_result.each do |meal_row|
+      row["meals"].push(meal_row)
+    end
+    
+    query = "SELECT * FROM fddp_Order o INNER JOIN fddp_Item_has_fddp_Order io ON o.id = io.Order_id WHERE o.id = #{row["id"]}"
+    item_result = @@mysqlclient.query(query, as: :hash)
+    row["items"] = Array.new
+    item_result.each do |item_row|
+      row["items"].push(item_row)
+    end
     results_array.push(row)
   end
   

@@ -10,6 +10,8 @@
 
 @interface FDDPMealsViewController ()
 
+@property (weak, nonatomic) IBOutlet UITableView *mealsTableView;
+
 @end
 
 @implementation FDDPMealsViewController
@@ -26,6 +28,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+}
+
+#pragma mark - UITableViewDataSource Methods
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
+
+
+#pragma mark - UITableViewDelegate Methods
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+   
 }
 
 @end

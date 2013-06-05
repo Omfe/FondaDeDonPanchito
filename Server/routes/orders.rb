@@ -128,11 +128,11 @@ put '/orders/:id' do
   fields = Array.new
   
   if data.has_key?("orderNotes")
-    fields.push("orderNotes=#{data["orderNotes"]}")
+    fields.push("orderNotes='#{data["orderNotes"]}'")
   end
   
   if data.has_key?("orderedAt")
-    fields.push("orderedAt=#{data["orderedAt"]}")
+    fields.push("orderedAt='#{data["orderedAt"]}'")
   end
   
   if fields.count > 0

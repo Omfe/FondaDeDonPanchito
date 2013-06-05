@@ -13,14 +13,14 @@ get '/orders' do
   query = "SELECT * FROM fddp_Order"
   result = @@mysqlclient.query(query, as: :hash)
   result.each do |row|
-    query = "SELECT * FROM fddp_Meal m INNER JOIN fddp_Meal_has_fddp_Order mo ON m.id = mo.Meal_id INNER JOIN fddp_Order o ON o.id = mo.Order_id WHERE o.id = #{row["id"]}"
+    query = "SELECT * FROM fddp_Order o INNER JOIN fddp_Meal_has_fddp_Order mo ON o.id = mo.Order_id INNER JOIN fddp_Meal m ON m.id = mo.Meal_id WHERE o.id = #{row["id"]}"
     meal_result = @@mysqlclient.query(query, as: :hash)
     row["meals"] = Array.new
     meal_result.each do |meal_row|
       row["meals"].push(meal_row)
     end
     
-    query = "SELECT * FROM fddp_Item i INNER JOIN fddp_Item_has_fddp_Order io ON i.id = io.Item_id INNER JOIN fddp_Order o ON o.id = io.Order_id WHERE o.id = #{row["id"]}"
+    query = "SELECT * FROM fddp_Order o INNER JOIN fddp_Item_has_fddp_Order io ON o.id = io.Order_id INNER JOIN fddp_Item m ON m.id = io.Item_id WHERE o.id = #{row["id"]}"
     item_result = @@mysqlclient.query(query, as: :hash)
     row["items"] = Array.new
     item_result.each do |item_row|
@@ -158,15 +158,15 @@ put '/orders/:id' do
   @@mysqlclient.query(query, as: :hash)
   if data.has_key?("mealIds")
     data["mealIds"].each do |mealId|
-      query = "INSERT INTO fddp_Meal_has_fddp_Order (Meal_id, Order_id) VALUES(#{mealId}, #{orderId})"
+      query = "INSERT INTO fddp_Meal_has_fddp_Order (Meal_id, Order_id) VALUES(#{mealId}, #{params[:id]})"
       @@mysqlclient.query(query, as: :hash)
     end    
   end
-  query = "DELETE FROM fddp_Order WHERE id=#{params[:id]}"
+  query = "DELETE FROM fddp_Item_has_fddp_Order WHERE Order_id=#{params[:id]}"
   @@mysqlclient.query(query, as: :hash)
   if data.has_key?("itemIds")
     data["itemIds"].each do |itemId|
-      query = "INSERT INTO fddp_Item_has_fddp_Order (Item_id, Order_id) VALUES(#{itemId}, #{orderId})"
+      query = "INSERT INTO fddp_Item_has_fddp_Order (Item_id, Order_id) VALUES(#{itemId}, #{params[:id]})"
       @@mysqlclient.query(query, as: :hash)
     end    
   end

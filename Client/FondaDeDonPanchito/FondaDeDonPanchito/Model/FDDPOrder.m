@@ -66,7 +66,7 @@
     for (FDDPItem *item in self.items) {
         [itemIDs addObject:item.itemId];
     }
-    dictionary[@"mealIds"] = itemIDs;
+    dictionary[@"itemIds"] = itemIDs;
     
     return dictionary;
 }

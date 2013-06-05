@@ -15,4 +15,7 @@
 @property (strong, nonatomic) NSNumber *itemPrice;
 @property (strong, nonatomic) NSNumber *isActive;
 
+- (void)updateFromDictionary:(NSDictionary *)dictionary;
+- (NSDictionary *)dictionaryRepresentation;
+
 @end

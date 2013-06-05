@@ -10,4 +10,25 @@
 
 @implementation FDDPItem
 
+- (void)updateFromDictionary:(NSDictionary *)dictionary
+{
+    self.itemId = dictionary[@"id"];
+    self.itemName = dictionary[@"itemName"];
+    self.itemPrice = dictionary[@"itemPrice"];
+    self.isActive = dictionary[@"isActive"];
+}
+
+- (NSDictionary *)dictionaryRepresentation
+{
+    NSMutableDictionary *dictionary;
+    
+    dictionary = [[NSMutableDictionary alloc] init];
+    dictionary[@"id"] = self.itemId;
+    dictionary[@"itemName"] = self.itemName;
+    dictionary[@"itemPrice"] = self.itemPrice;
+    dictionary[@"isActive"] = self.isActive;
+    
+    return dictionary;   
+}
+
 @end

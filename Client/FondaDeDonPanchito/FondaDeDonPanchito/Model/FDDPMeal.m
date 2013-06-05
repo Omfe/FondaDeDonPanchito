@@ -10,4 +10,25 @@
 
 @implementation FDDPMeal
 
+- (void)updateFromDictionary:(NSDictionary *)dictionary
+{
+    self.mealId = dictionary[@"id"];
+    self.mealPrice = dictionary[@"mealPrice"];
+    self.mealName = dictionary[@"mealName"];
+    self.isActive = dictionary[@"isActive"];
+}
+
+- (NSDictionary *)dictionaryRepresentation
+{
+    NSMutableDictionary *dictionary;
+    
+    dictionary = [[NSMutableDictionary alloc] init];
+    dictionary[@"id"] = self.mealId;
+    dictionary[@"mealPrice"] = self.mealPrice;
+    dictionary[@"mealName"] = self.mealName;
+    dictionary[@"isActive"] = self.isActive;
+    
+    return dictionary;
+}
+
 @end

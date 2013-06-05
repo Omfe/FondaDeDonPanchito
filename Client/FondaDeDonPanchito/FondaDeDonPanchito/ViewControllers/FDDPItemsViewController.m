@@ -7,10 +7,13 @@
 //
 
 #import "FDDPItemsViewController.h"
+#import "FDDPWebServicesManager.h"
+#import "FDDPItem.h"
 
 @interface FDDPItemsViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *itemsTableView;
+@property (strong, nonatomic) NSArray *itemsArray;
 
 @end
 
@@ -28,18 +31,33 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self fetchAllItems];
 }
 
 
 #pragma mark - UITableViewDataSource Methods
-- (void)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    
+    return self.itemsArray.count;
 }
 
-- (void)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    UITableViewCell *cell;
+    static NSString *identifier = @"ItemsTableViewCellIdentifier";
+    FDDPItem *item;
     
+    cell = [self.itemsTableView dequeueReusableCellWithIdentifier:identifier];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    }
+    
+    item = [[FDDPItem alloc] init];
+    item = [self.itemsArray objectAtIndex:indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@", item.itemName];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
+    return cell;
 }
 
 
@@ -48,5 +66,18 @@
 {
     
 }
+
+#pragma mark - Private Method
+- (void)fetchAllItems
+{
+    FDDPWebServicesManager *webServicesManager;
+    
+    webServicesManager = [[FDDPWebServicesManager alloc] init];
+    [webServicesManager fetchAllItems:^(NSArray *items, NSError *error) {
+        self.itemsArray= items;
+        [self.itemsTableView reloadData];
+    }];
+}
+
 
 @end

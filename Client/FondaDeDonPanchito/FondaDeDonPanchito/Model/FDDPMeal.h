@@ -15,4 +15,7 @@
 @property (strong, nonatomic) NSString *mealName;
 @property (strong, nonatomic) NSNumber *isActive;
 
+- (void)updateFromDictionary:(NSDictionary *)dictionary;
+- (NSDictionary *)dictionaryRepresentation;
+
 @end

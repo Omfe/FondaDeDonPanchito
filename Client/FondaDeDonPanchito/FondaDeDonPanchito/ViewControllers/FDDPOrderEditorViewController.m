@@ -132,6 +132,15 @@
     FDDPMealsViewController *mealsViewController;
     
     mealsViewController = [[FDDPMealsViewController alloc] initWithNibName:@"FDDPMealsViewController" bundle:nil];
+    [mealsViewController setCompletionBlock:^(FDDPMeal *meal){
+        NSMutableArray *meals;
+        
+        meals = [self.order.meals mutableCopy];
+        [meals addObject:meal];
+        self.order.meals = meals;
+        [self updateMealsAndItemsTextView];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
     
     navigationController = [[UINavigationController alloc] initWithRootViewController:mealsViewController];
     [self presentViewController:navigationController animated:YES completion:nil];
@@ -143,6 +152,15 @@
     FDDPItemsViewController *itemsViewController;
     
     itemsViewController = [[FDDPItemsViewController alloc] initWithNibName:@"FDDPItemsViewController" bundle:nil];
+    [itemsViewController setCompletionBlock:^(FDDPItem *item){
+        NSMutableArray *items;
+        
+        items = [self.order.items mutableCopy];
+        [items addObject:item];
+        self.order.items = items;
+        [self updateMealsAndItemsTextView];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
     
     navigationController = [[UINavigationController alloc] initWithRootViewController:itemsViewController];
     [self presentViewController:navigationController animated:YES completion:nil];
@@ -169,12 +187,12 @@
 - (void)setupUI
 {
     if (self.isNewOrder) {
+        self.orderIDLabel.text = @"New Order";
+        self.deleteButton.hidden = YES;
+    } else {
         self.orderIDLabel.text = [self.order.orderId stringValue];
         self.orderNotesTextView.text = self.order.orderNotes;
         self.deleteButton.hidden = NO;
-    } else {
-        self.orderIDLabel.text = @"New Order";
-        self.deleteButton.hidden = YES;
     }
     
     [self.containerScrollView addSubview:self.containerView];

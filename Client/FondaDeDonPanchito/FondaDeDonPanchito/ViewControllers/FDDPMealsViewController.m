@@ -23,7 +23,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        self.title = @"Meals";
     }
     return self;
 }
@@ -31,6 +31,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setupUI];
     [self fetchAllMeals];
 }
 
@@ -55,7 +56,10 @@
     meal = [[FDDPMeal alloc] init];
     meal = [self.mealsArray objectAtIndex:indexPath.row];
     cell.textLabel.text = [NSString stringWithFormat:@"%@", meal.mealName];
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
+    if (!self.completionBlock) {
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
     
     return cell;
 }
@@ -64,7 +68,30 @@
 #pragma mark - UITableViewDelegate Methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-   
+    FDDPMeal *meal;
+    
+    meal = [self.mealsArray objectAtIndex:indexPath.row];
+    if (self.completionBlock) {
+        self.completionBlock(meal);
+        return;
+    }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+
+#pragma mark - Action Methods
+- (IBAction)addNewMeal:(id)sender
+{
+    //[self presentOrderEditorViewControllerWithOrder:nil];
+}
+
+- (IBAction)cancelWasPressed:(id)sender
+{
+    if (self.completionBlock) {
+        self.completionBlock(nil);
+        return;
+    }
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - Private Method
@@ -77,6 +104,20 @@
         self.mealsArray = meals;
         [self.mealsTableView reloadData];
     }];
+}
+
+- (void)setupUI
+{
+    if (self.completionBlock) {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewMeals:)];
+    }
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelWasPressed:)];
+}
+
+
+- (void)presentMealEditorViewControllerWithOrder:(FDDPMeal *)meal
+{
+    
 }
 
 @end

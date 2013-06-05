@@ -27,6 +27,8 @@
 
 @property (strong, nonatomic) UIActionSheet *deleteActionSheet;
 
+@property (nonatomic, strong) NSMutableArray *orderObjectsArray;
+
 @end
 
 @implementation FDDPOrderEditorViewController
@@ -125,23 +127,40 @@
 
 - (IBAction)addMealWasPressed:(id)sender
 {
+    UINavigationController *navigationController;
     FDDPMealsViewController *mealsViewController;
     
-    //
+    mealsViewController = [[FDDPMealsViewController alloc] initWithNibName:@"FDDPMealsViewController" bundle:nil];
+    
+    navigationController = [[UINavigationController alloc] initWithRootViewController:mealsViewController];
+    [self presentViewController:navigationController animated:YES completion:nil];
 }
 
 - (IBAction)addItemWasPressed:(id)sender
 {
+    UINavigationController *navigationController;
     FDDPItemsViewController *itemsViewController;
     
-    //
+    itemsViewController = [[FDDPItemsViewController alloc] initWithNibName:@"FDDPItemsViewController" bundle:nil];
+    
+    navigationController = [[UINavigationController alloc] initWithRootViewController:itemsViewController];
+    [self presentViewController:navigationController animated:YES completion:nil];
 }
 
 - (IBAction)removeWasPressed:(id)sender
 {
+    UINavigationController *navigationController;
     FDDPMealsAndItemsViewController *mealsAndItemsViewController;
     
-    //
+    mealsAndItemsViewController = [[FDDPMealsAndItemsViewController alloc] initWithNibName:@"FDDPMealsAndItemsViewController" bundle:nil];
+    mealsAndItemsViewController.orderObjectsArray = self.orderObjectsArray;
+    [mealsAndItemsViewController setCompletionBlock:^{
+        // Reload the string
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+    
+    navigationController = [[UINavigationController alloc] initWithRootViewController:mealsAndItemsViewController];
+    [self presentViewController:navigationController animated:YES completion:nil];
 }
 
 

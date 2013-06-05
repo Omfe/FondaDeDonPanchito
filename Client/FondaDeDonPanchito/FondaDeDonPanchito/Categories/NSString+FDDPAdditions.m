@@ -46,7 +46,7 @@
     
     if ( !dateFormatter ) {
         dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"YYYY-MM-DD HH:mm:SS"];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     }
     
     return dateFormatter;

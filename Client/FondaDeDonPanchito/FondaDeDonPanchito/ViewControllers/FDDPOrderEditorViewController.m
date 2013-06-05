@@ -201,10 +201,18 @@
     NSString *mealsString;
     NSString *itemsString;
     
-    mealsString = [[self.order.meals valueForKeyPath:@"mealName"] componentsJoinedByString:@", "];
-    itemsString = [[self.order.items valueForKeyPath:@"itemName"] componentsJoinedByString:@", "];
+    mealsString = [[self.order.meals valueForKey:@"mealName"] componentsJoinedByString:@", "];
+    itemsString = [[self.order.items valueForKey:@"itemName"] componentsJoinedByString:@", "];
     
-    self.mealsAndItemsTextView.text = [@[mealsString, itemsString] componentsJoinedByString:@", "];
+    if (self.order.meals.count && self.order.items.count) {
+        self.mealsAndItemsTextView.text = [@[mealsString, itemsString] componentsJoinedByString:@", "];
+    } else if (self.order.meals.count && !self.order.items.count) {
+        self.mealsAndItemsTextView.text = mealsString;
+    } else if (!self.order.meals.count && self.order.items.count) {
+        self.mealsAndItemsTextView.text = itemsString;
+    } else {
+        self.mealsAndItemsTextView.text = @"";
+    }
 }
 
 - (void)addBorderToTextViews

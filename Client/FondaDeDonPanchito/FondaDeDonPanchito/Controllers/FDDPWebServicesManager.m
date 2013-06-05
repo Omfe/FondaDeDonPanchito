@@ -70,7 +70,6 @@
     NSData *bodyData;
     
     urlString = [kServerURL stringByAppendingPathComponent:@"orders"];
-    urlString = [urlString stringByAppendingPathComponent:[order.orderId stringValue]];
     urlString = [urlString stringByAddingURLParameters:@{ @"token": [[FDDPAuthenticationManager sharedManager] loggedInUser].token }];
     url = [NSURL URLWithString:urlString];
     urlRequest = [NSMutableURLRequest requestWithURL:url];
@@ -188,7 +187,4 @@
     }];
 }
 @end
-
-//hmmm nah creo que si cambian varias cosas: http method, el urlString tiene que mandar id como parte del url "orders/2", y después de lo del statusCode] == 400, es igual al logout pero sin eso de self.loggedInUser = nil
-
 

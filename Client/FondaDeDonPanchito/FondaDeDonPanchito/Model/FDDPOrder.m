@@ -32,7 +32,7 @@
     meals = [NSMutableArray array];
     for (NSDictionary *mealsDictionary in dictionary[@"meals"]) {
         meal = [[FDDPMeal alloc] init];
-//        [meal updateFromDictionary:mealsDictionary];
+        [meal updateFromDictionary:mealsDictionary];
         [meals addObject:meal];
     }
     self.meals = meals;
@@ -40,7 +40,7 @@
     items = [NSMutableArray array];
     for (NSDictionary *itemsDictionary in dictionary[@"items"]) {
         item = [[FDDPItem alloc] init];
-//        [item updatFromDictionary:itemsDictionary];
+        [item updateFromDictionary:itemsDictionary];
         [items addObject:item];
     }
     self.items = items;
